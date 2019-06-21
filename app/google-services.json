@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "519556539261",
+    "firebase_url": "https://swift-d5717.firebaseio.com",
+    "project_id": "swift-d5717",
+    "storage_bucket": "swift-d5717.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519556539261:android:332ab37f4f21b092",
+        "android_client_info": {
+          "package_name": "com.rrr.swift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519556539261-cbbraq3k3gbj9ucua1lut363vl1i4oct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rrr.swift",
+            "certificate_hash": "d32efc982fc7407e9c68ef0ef7115e9d0f8facb0"
+          }
+        },
+        {
+          "client_id": "519556539261-um00697k05mh5dp65iddorcq4hnt5edd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCow6T8EzzaiZSA8X3MtMK81x9YxRxAcLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519556539261-um00697k05mh5dp65iddorcq4hnt5edd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
