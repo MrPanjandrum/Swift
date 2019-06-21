@@ -30,7 +30,7 @@ public class SplashActivity extends Activity {
                         splashLogo.startAnimation(rotateAnimation);
                         splashLogo.setVisibility(View.INVISIBLE);
                         sleep(3000);
-                        Intent splashIntent = new Intent(getApplicationContext(),MainActivity.class);
+                        Intent splashIntent = new Intent(getApplicationContext(),TaskActivity.class);
                         startActivity(splashIntent);
                         finish();
                     }
