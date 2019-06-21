@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TaskActivity extends Activity
 {
 
-    RecyclerView mRecyclerView;
+    RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Posts");
 
@@ -22,10 +22,10 @@ public class TaskActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
-        mRecyclerView = findViewById(R.id.task_recyclerview);
+        recyclerView = findViewById(R.id.task_recyclerview);
 
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
     }
 
@@ -42,11 +42,11 @@ public class TaskActivity extends Activity
             @Override
             protected void populateViewHolder(ViewHolder viewHolder, RecyclerData model, int position)
             {
-            viewHolder.setDetails(model.getImg(),model.getText());
+            viewHolder.setDetails(model.getText(),model.getImg());
             }
         };
 
-        mRecyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setAdapter(recyclerAdapter);
 
     }
 }

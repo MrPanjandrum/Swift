@@ -1,7 +1,5 @@
 package com.rrr.swift;
 
-import android.media.Image;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +12,7 @@ public class ViewHolder extends RecyclerView.ViewHolder
 
     View mView;
 
-    public ViewHolder(@NonNull View itemView)
+    public ViewHolder(View itemView)
     {
         super(itemView);
         mView = itemView;
@@ -28,6 +26,5 @@ public class ViewHolder extends RecyclerView.ViewHolder
         Picasso.get().load(image).into(img);
         txt.setText(text);
     }
-
 
 }
