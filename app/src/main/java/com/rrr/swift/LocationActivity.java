@@ -9,18 +9,18 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class TaskActivity extends Activity
+public class LocationActivity extends Activity
 {
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference("Posts");
+    DatabaseReference reference = database.getReference("Locations");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
+        setContentView(R.layout.activity_location);
 
         recyclerView = findViewById(R.id.task_recyclerview);
 

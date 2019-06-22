@@ -9,13 +9,14 @@ public class RecyclerData
     public RecyclerData(String text, String img)
     {
         this.text = text;
-        this.img = img;
+        this.img = img;;
     }
 
     public String getImg() { return img; }
 
 
     public void setImg(String img) { this.img = img; }
+
 
 
     public String getText()

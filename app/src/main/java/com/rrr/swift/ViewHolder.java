@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
 
 public class ViewHolder extends RecyclerView.ViewHolder
@@ -26,5 +25,7 @@ public class ViewHolder extends RecyclerView.ViewHolder
         Picasso.get().load(image).into(img);
         txt.setText(text);
     }
+
+
 
 }
