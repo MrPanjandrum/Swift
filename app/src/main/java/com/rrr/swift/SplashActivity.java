@@ -8,7 +8,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class SplashActivity extends Activity {
+import com.rrr.swift.temp.Main2Activity;
+
+public class SplashActivity extends Activity
+{
 
         ImageView splashLogo;
 
@@ -30,7 +33,7 @@ public class SplashActivity extends Activity {
                         splashLogo.startAnimation(rotateAnimation);
                         splashLogo.setVisibility(View.INVISIBLE);
                         sleep(3000);
-                        Intent splashIntent = new Intent(getApplicationContext(), LocationActivity.class);
+                        Intent splashIntent = new Intent(getApplicationContext(), Main2Activity.class);
                         startActivity(splashIntent);
                         finish();
                     }

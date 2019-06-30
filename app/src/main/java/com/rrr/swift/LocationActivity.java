@@ -9,12 +9,18 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class LocationActivity extends Activity
 {
+
+    private static final String TAG = "LocationActivity";
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Locations");
+
+
+   ///////////////////////////////////////////////////////////////////////////////
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,26 +33,44 @@ public class LocationActivity extends Activity
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
+
     }
+
+////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     protected void onStart()
     {
         super.onStart();
 
-        FirebaseRecyclerAdapter<RecyclerData, ViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<RecyclerData, ViewHolder>
+        FirebaseRecyclerAdapter<Location, ViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, ViewHolder>
                 (
-                        RecyclerData.class, R.layout.recycler_view_layout, ViewHolder.class, reference
+                        Location.class, R.layout.recycler_view_layout, ViewHolder.class, reference
+
                 )
         {
             @Override
-            protected void populateViewHolder(ViewHolder viewHolder, RecyclerData model, int position)
+            protected void populateViewHolder(ViewHolder viewHolder, Location model, int position)
             {
-            viewHolder.setDetails(model.getText(),model.getImg());
+                viewHolder.setDetails(model.getAddress(),model.getAddressImage());
+
             }
         };
 
         recyclerView.setAdapter(recyclerAdapter);
 
+
     }
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
 }
