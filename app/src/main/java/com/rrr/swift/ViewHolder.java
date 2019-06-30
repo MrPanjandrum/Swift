@@ -19,9 +19,6 @@ public class ViewHolder extends RecyclerView.ViewHolder
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mAddressImage = new ArrayList<>();
 
-    private Context mContext;
-
-
 
 
     public ViewHolder(final View itemView)

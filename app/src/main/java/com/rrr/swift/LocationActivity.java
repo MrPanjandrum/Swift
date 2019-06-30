@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LocationActivity extends Activity
 {
 
-    private static final String TAG = "LocationActivity";
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
