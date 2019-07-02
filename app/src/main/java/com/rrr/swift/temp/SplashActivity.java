@@ -1,4 +1,4 @@
-package com.rrr.swift;
+package com.rrr.swift.temp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.rrr.swift.temp.MainActivity;
+import com.rrr.swift.temp2.LocationActivity;
+import com.rrr.swift.R;
 
 
 public class SplashActivity extends Activity

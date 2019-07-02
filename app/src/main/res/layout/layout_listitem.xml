@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/parent_layout">
+    android:padding="15dp"
+    android:orientation="vertical">
 
-    
     <ImageView
-        android:id="@+id/recycler_img"
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -16,25 +16,17 @@
         />
 
     <TextView
-        android:id="@+id/recycler_text"
+        android:id="@+id/image_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Test Text"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textAlignment="center"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         />
 
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:background="?android:attr/listDivider"
-        android:visibility="visible" />
 
 
 </LinearLayout>

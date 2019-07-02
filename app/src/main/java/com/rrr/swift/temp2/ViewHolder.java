@@ -1,12 +1,15 @@
-package com.rrr.swift;
+package com.rrr.swift.temp2;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.rrr.swift.GalleryActivity;
+import com.rrr.swift.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -46,12 +49,18 @@ public class ViewHolder extends RecyclerView.ViewHolder
         ImageView img = mView.findViewById(R.id.recycler_img);
         TextView txt = mView.findViewById(R.id.recycler_text);
 
+
         Picasso.get().load(image).into(img);
         txt.setText(text);
         mAddress.add(text);
         mAddressImage.add(image);
 
     }
+
+
+
+
+
 
 
 

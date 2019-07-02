@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".temp.MainActivity"></activity>
         <activity android:name=".GalleryActivity" />
-        <activity android:name=".LocationActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".temp2.LocationActivity" />
+        <activity android:name=".temp.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
