@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.temp2.Location;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class GalleryActivity extends Activity
@@ -28,11 +29,6 @@ public class GalleryActivity extends Activity
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Tasks");
-    //String test;
-    int num;
-    //DatabaseReference testRef = reference.child(num).child("tasks");
-
-
 
 
 
@@ -57,7 +53,6 @@ public class GalleryActivity extends Activity
         Log.d(TAG, "onCreate: started.");
         getIncomingIntent();
 
-
     }
 
 
@@ -72,23 +67,27 @@ public class GalleryActivity extends Activity
         super.onStart();
 
 
-        //test= mAddress.toString();
-
-        //DatabaseReference testRef = reference.child(num).child("tasks");
-
 
         FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
                 (
                      Location.class, R.layout.recycler_view_task_layout, GalleryViewHolder.class, reference
                 )
         {
+
             @Override
             protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
             {
 
-                viewHolder.setDetail(model.getTaskName(),model.getTaskDescription());
+    if(mAddress.contains(model.getAddress()))
+        {
+            viewHolder.setDetail(model.getTaskName(), model.getTaskDescription());
+            //mAddress = model.getAddress();
+            System.out.println(mAddress);
+            System.out.println(model.getAddress());
+        }
 
-            }
+
+           }
         };
 
         recyclerView.setAdapter(recyclerAdapter);
@@ -115,6 +114,7 @@ public class GalleryActivity extends Activity
             mAddress = getIntent().getStringArrayListExtra("address");
 
             setImage(mAddressImage, mAddress);
+
 
 
 
@@ -163,14 +163,6 @@ public class GalleryActivity extends Activity
 //
 //        return num;
 //    }
-
-
-
-
-
-
-
-
 
 
 

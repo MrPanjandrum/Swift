@@ -19,6 +19,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     {
 
 
+
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
         TextView tskDescription = mView.findViewById(R.id.recycler_task_description);
 
@@ -27,13 +28,8 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
 
     }
 
-    public String determineAddress(String add)
-    {
-        String address = add;
 
 
-        return address;
-    }
 
 }
 
