@@ -18,8 +18,6 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     public void setDetail(String taskName, String taskDescription)
     {
 
-
-
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
         TextView tskDescription = mView.findViewById(R.id.recycler_task_description);
 

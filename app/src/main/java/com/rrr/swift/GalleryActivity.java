@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -80,14 +82,21 @@ public class GalleryActivity extends Activity
 
     if(mAddress.contains(model.getAddress()))
         {
+            viewHolder.itemView.setVisibility(View.VISIBLE);
+            viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             viewHolder.setDetail(model.getTaskName(), model.getTaskDescription());
             //mAddress = model.getAddress();
             System.out.println(mAddress);
             System.out.println(model.getAddress());
         }
+    else
+        {
+        viewHolder.itemView.setVisibility(View.GONE);
+        viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));
+        }
 
 
-           }
+            }
         };
 
         recyclerView.setAdapter(recyclerAdapter);
