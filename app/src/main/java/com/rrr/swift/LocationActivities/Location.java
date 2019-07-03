@@ -1,4 +1,4 @@
-package com.rrr.swift.temp2;
+package com.rrr.swift.LocationActivities;
 
 public class Location
 {

@@ -1,4 +1,4 @@
-package com.rrr.swift;
+package com.rrr.swift.GalleryActivities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rrr.swift.temp2.Location;
+import com.rrr.swift.LocationActivities.Location;
+import com.rrr.swift.R;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class GalleryActivity extends Activity

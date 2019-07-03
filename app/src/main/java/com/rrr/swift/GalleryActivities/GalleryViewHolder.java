@@ -1,8 +1,10 @@
-package com.rrr.swift;
+package com.rrr.swift.GalleryActivities;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import com.rrr.swift.R;
 
 public class GalleryViewHolder extends RecyclerView.ViewHolder
 {

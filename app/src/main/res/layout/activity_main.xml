@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".temp.MainActivity">
+    tools:context=".SearchExampleActivites.MainActivity">
 
     <TextView
         android:id="@+id/location_title"

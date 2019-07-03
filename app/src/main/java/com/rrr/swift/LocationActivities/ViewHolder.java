@@ -1,14 +1,13 @@
-package com.rrr.swift.temp2;
+package com.rrr.swift.LocationActivities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rrr.swift.GalleryActivity;
+import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.R;
 import com.squareup.picasso.Picasso;
 

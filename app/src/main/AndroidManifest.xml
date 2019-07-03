@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".temp.MainActivity"></activity>
-        <activity android:name=".GalleryActivity" />
-        <activity android:name=".temp2.LocationActivity" />
-        <activity android:name=".temp.SplashActivity">
+        <activity android:name=".SearchExampleActivites.MainActivity"></activity>
+        <activity android:name=".GalleryActivities.GalleryActivity" />
+        <activity android:name=".LocationActivities.LocationActivity" />
+        <activity android:name=".SplashActivity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

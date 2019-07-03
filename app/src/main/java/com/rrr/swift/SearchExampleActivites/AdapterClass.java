@@ -1,6 +1,5 @@
-package com.rrr.swift.temp;
+package com.rrr.swift.SearchExampleActivites;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.rrr.swift.temp2.Location;
+import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
 
 import java.util.ArrayList;
@@ -18,11 +16,6 @@ import java.util.ArrayList;
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder>
 {
 
-    Context context;
-
-    private ArrayList<String> mImageNames = new ArrayList<>();
-    private ArrayList<String> mImages = new ArrayList<>();
-    private Context mContext;
     ArrayList<Location> list;
 
 
@@ -50,7 +43,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position)
     {
         myViewHolder.address.setText(list.get(position).getAddress());
-        //myViewHolder.desc.setText(list.get(position).getDealDisc());
 
     }
 
@@ -69,14 +61,13 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
 
     class MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView address,desc;
+        TextView address;
         ImageView image;
 
         public MyViewHolder(@NonNull View itemView)
         {
             super(itemView);
             address = itemView.findViewById(R.id.address);
-            //desc = itemView.findViewById(R.id.description);
             image = itemView.findViewById(R.id.image);
 
         }
