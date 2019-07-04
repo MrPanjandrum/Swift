@@ -1,10 +1,12 @@
 package com.rrr.swift.LocationActivities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -32,7 +34,8 @@ public class LocationActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);
+        //setContentView(R.layout.activity_location);
+        setContentView(R.layout.activity_admin_location); //testing admin add/edit features
         Log.d(TAG, "onCreate: started.");
 
         recyclerView = findViewById(R.id.location_recyclerview);
@@ -73,6 +76,15 @@ public class LocationActivity extends Activity
 
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+
+    public void openAddEditLocations(View view)
+    {
+        Intent myIntent = new Intent(LocationActivity.this, AddEditLocationActivity.class);
+        LocationActivity.this.startActivity(myIntent);
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////

@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.R;
@@ -14,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 
-public class LocationViewHolder extends RecyclerView.ViewHolder
+public class AddEditLocationViewHolder extends RecyclerView.ViewHolder
 {
 
     View mView;
@@ -24,7 +25,7 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
 
 
 
-    public LocationViewHolder(final View itemView)
+    public AddEditLocationViewHolder(final View itemView)
     {
         super(itemView);
 
@@ -34,12 +35,12 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
             @Override
             public void onClick(View v)
             {
-               Context context = v.getContext();
-               Intent intent = new Intent(context, GalleryActivity.class);
-               intent.putExtra("address",mAddress);
-               intent.putExtra("address_image",mAddressImage);
-               context.startActivity(intent);
-               //Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
+                Context context = v.getContext();
+//                Intent intent = new Intent(context, LocationEditDetailActivity.class);
+//                intent.putExtra("address",mAddress);
+//                intent.putExtra("address_image",mAddressImage);
+//                context.startActivity(intent);
+                Toast.makeText(context,"Clicked Location to Edit ", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -65,3 +66,4 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
         txt.setText(address);
     }
 }
+

@@ -19,6 +19,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mTaskName = new ArrayList<>();
     private ArrayList<String> mTaskDescription = new ArrayList<>();
+    private ArrayList<String> mTaskArea = new ArrayList<>();
 
     public GalleryViewHolder(View itemView)
     {
@@ -35,6 +36,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
                 intent.putExtra("address",mAddress);
                 intent.putExtra("task_name",mTaskName);
                 intent.putExtra("task_description",mTaskDescription);
+                intent.putExtra("task_area",mTaskArea);
                 context.startActivity(intent);
                 //Toast.makeText(context,"Clicked: "+mTaskName, Toast.LENGTH_LONG).show();
             }
@@ -42,7 +44,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
 
     }
 
-    public void setTaskDetails(String taskName, String taskDescription)
+    public void setTaskDetails(String address, String taskName, String taskDescription, String taskArea)
     {
 
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
@@ -51,8 +53,10 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
         tskName.setText(taskName);
         tskDescription.setText(taskDescription);
 
+        mAddress.add(address);
         mTaskName.add(taskName);
         mTaskDescription.add(taskDescription);
+        mTaskArea.add(taskArea);
 
     }
 

@@ -1,7 +1,6 @@
 package com.rrr.swift.GalleryActivities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
-import com.rrr.swift.TaskActivity.TaskActivity;
 
 import java.util.ArrayList;
 
@@ -79,7 +77,7 @@ public class GalleryActivity extends Activity
         {
             viewHolder.itemView.setVisibility(View.VISIBLE);
             viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            viewHolder.setTaskDetails(model.getTaskName(), model.getTaskDescription());                  //sets taskname and description to viewholder
+            viewHolder.setTaskDetails(model.getAddress(), model.getTaskName(), model.getTaskDescription(), model.getTaskArea());                  //sets taskname and description to viewholder
         }
     else
         {

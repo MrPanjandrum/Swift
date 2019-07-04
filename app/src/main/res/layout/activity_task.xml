@@ -9,10 +9,13 @@
 
     <TextView
         android:id="@+id/address"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"
-        android:textSize="15sp"/>
+        android:text="Sample Address"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
 
     <TextView
@@ -20,7 +23,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Task Name"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/taskArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task Area"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/taskDescription"
@@ -28,4 +39,6 @@
         android:layout_height="wrap_content"
         android:text="Task Description"
         android:textSize="20sp"/>
+
+
 </LinearLayout>
