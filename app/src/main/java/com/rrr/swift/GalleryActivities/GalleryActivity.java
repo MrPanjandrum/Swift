@@ -1,6 +1,7 @@
 package com.rrr.swift.GalleryActivities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
+import com.rrr.swift.TaskActivity.TaskActivity;
 
 import java.util.ArrayList;
 
@@ -28,16 +30,14 @@ public class GalleryActivity extends Activity
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mAddressImage = new ArrayList<>();
 
+    private String mString;
+
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Tasks");
 
 
-
-
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
     @Override
@@ -45,30 +45,25 @@ public class GalleryActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        //Log.d(TAG, "onCreate: started.");
+        Log.d(TAG, "onCreate: started.");
 
         recyclerView = findViewById(R.id.gallery_recyclerview);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
-        Log.d(TAG, "onCreate: started.");
         getIncomingIntent();
-
     }
 
 
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
     @Override
     protected void onStart()
     {
         super.onStart();
-
-
+        Log.d(TAG, "onStart: started.");
 
         FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
                 (
@@ -80,35 +75,26 @@ public class GalleryActivity extends Activity
             protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
             {
 
-    if(mAddress.contains(model.getAddress()))
+    if(mAddress.contains(model.getAddress()))   //checks for tasks matching selected location
         {
             viewHolder.itemView.setVisibility(View.VISIBLE);
             viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            viewHolder.setDetail(model.getTaskName(), model.getTaskDescription());
-            //mAddress = model.getAddress();
-            System.out.println(mAddress);
-            System.out.println(model.getAddress());
+            viewHolder.setTaskDetails(model.getTaskName(), model.getTaskDescription());                  //sets taskname and description to viewholder
         }
     else
         {
         viewHolder.itemView.setVisibility(View.GONE);
-        viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));
+        viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
         }
-
 
             }
         };
 
         recyclerView.setAdapter(recyclerAdapter);
-
-
     }
 
 
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
     private void getIncomingIntent()
@@ -125,15 +111,11 @@ public class GalleryActivity extends Activity
             setImage(mAddressImage, mAddress);
 
 
-
-
         }
     }
 
 
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
     private void setImage(ArrayList<String> mAddressImage, ArrayList<String> mAddress)
@@ -152,26 +134,8 @@ public class GalleryActivity extends Activity
     }
 
 
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-//    private int determineAddress()
-//    {
-//
-//        mAddress = getIntent().getStringArrayListExtra("address"); //123 Example St, NY
-//        for (int i=0;i<=5;i++)
-//        {
-////            if()
-////            {
-////
-////            }
-//        }
-//
-//
-//        return num;
-//    }
 
 
 

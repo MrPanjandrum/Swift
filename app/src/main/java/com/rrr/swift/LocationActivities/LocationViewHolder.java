@@ -6,26 +6,30 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.R;
+import com.rrr.swift.TaskActivity.TaskActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 
-public class ViewHolder extends RecyclerView.ViewHolder
+public class LocationViewHolder extends RecyclerView.ViewHolder
 {
 
     View mView;
+
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mAddressImage = new ArrayList<>();
 
 
 
-    public ViewHolder(final View itemView)
+    public LocationViewHolder(final View itemView)
     {
         super(itemView);
+
         mView = itemView;
         itemView.setOnClickListener(new View.OnClickListener()
         {
@@ -37,22 +41,22 @@ public class ViewHolder extends RecyclerView.ViewHolder
                intent.putExtra("address",mAddress);
                intent.putExtra("address_image",mAddressImage);
                context.startActivity(intent);
-               //Toast.makeText(context,"Cicked: "+ mAddress, Toast.LENGTH_LONG).show();
+               //Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
             }
         });
 
     }
 
-    public void setDetails(String text, String image)
+    public void setLocationDetails(String address, String addressImage)
     {
         ImageView img = mView.findViewById(R.id.recycler_img);
         TextView txt = mView.findViewById(R.id.recycler_text);
 
+        Picasso.get().load(addressImage).into(img);
+        txt.setText(address);
 
-        Picasso.get().load(image).into(img);
-        txt.setText(text);
-        mAddress.add(text);
-        mAddressImage.add(image);
+        mAddress.add(address);
+        mAddressImage.add(addressImage);
 
     }
 

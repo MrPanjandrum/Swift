@@ -9,16 +9,24 @@
         android:id="@+id/recycler_task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Sampe Task"
         android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/recycler_task_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"/>
-        <!--android:text="Sample Description - The quick brown fox jumped over the lazy dog."-->
+        android:textSize="25sp"
+        android:text="Sample Description - The quick brown fox jumped over the lazy dog."/>
 
-
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        />
 
 
 </LinearLayout>
