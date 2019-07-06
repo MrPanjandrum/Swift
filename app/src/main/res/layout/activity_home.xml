@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeActivity"
+    android:background="#FFFFFF"
+    android:weightSum="100">
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/mh_logo"
+        android:contentDescription="mercy haven logo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/shape2"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="130dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Locations"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Work Orders"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:layout_weight="20"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal"
+        android:backgroundTint="#7A7A7A">
+
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_gravity="start"
+            android:src="@drawable/icons8_real_estate_filled_50_white"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="openLocationActivity"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_gravity="end"
+            android:src="@drawable/icons8_full_tool_storage_box_50_white"
+            android:layout_weight="1"
+            android:background="@drawable/shape"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:layout_weight="20"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:backgroundTint="#7A7A7A">
+
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_gravity="start"
+            android:src="@drawable/settings_icon_white"
+            android:layout_weight="1"
+            android:background="@drawable/shape"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_gravity="end"
+            android:src="@drawable/inspect_icon_white"
+            android:layout_weight="1"
+            android:background="@drawable/shape"/>
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Settings"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Inspections"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+
+    </LinearLayout>
+
+<!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:layout_weight="20"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_gravity="start"
+            android:src="@drawable/icons8_maintenance_50_white"
+            android:layout_weight="1"
+            android:background="@drawable/shape"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_gravity="end"
+            android:src="@drawable/icons8_saw_blade_50_2_white"
+            android:layout_weight="1"
+            android:background="@drawable/shape"/>
+    </LinearLayout>
+-->
+
+    </LinearLayout>
+
+</LinearLayout>

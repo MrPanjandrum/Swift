@@ -28,7 +28,6 @@ public class GalleryActivity extends Activity
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mAddressImage = new ArrayList<>();
 
-    private String mString;
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();

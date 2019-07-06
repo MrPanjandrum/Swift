@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".LocationActivities.LocationEditDetailsActivity" />
         <activity android:name=".LocationActivities.AddEditLocationActivity" />
         <activity android:name=".TaskActivity.TaskActivity" />
         <activity android:name=".SearchExampleActivites.MainActivity" />

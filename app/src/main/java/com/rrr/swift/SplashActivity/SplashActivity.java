@@ -8,9 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.rrr.swift.LocationActivities.LocationActivity;
+import com.rrr.swift.HomeActivity;
 import com.rrr.swift.R;
-import com.rrr.swift.SearchExampleActivites.MainActivity;
 
 
 public class SplashActivity extends Activity
@@ -35,8 +34,8 @@ public class SplashActivity extends Activity
                         Animation rotateAnimation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.splashanimation);
                         splashLogo.startAnimation(rotateAnimation);
                         splashLogo.setVisibility(View.INVISIBLE);
-                        sleep(3000);
-                        Intent splashIntent = new Intent(getApplicationContext(), LocationActivity.class);
+                        sleep(4000);
+                        Intent splashIntent = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(splashIntent);
                         finish();
                     }
