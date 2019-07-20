@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".LocationActivities.AddLocation"></activity>
+        <activity android:name=".temp.Main4Activity" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".LocationActivities.LocationEditDetailsActivity" />
         <activity android:name=".LocationActivities.AddEditLocationActivity" />
         <activity android:name=".TaskActivity.TaskActivity" />

@@ -45,6 +45,7 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
 
     }
 
+
     public void setLocationDetails(String address, String addressImage)
     {
         ImageView img = mView.findViewById(R.id.recycler_img);
@@ -55,7 +56,6 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
 
         mAddress.add(address);
         mAddressImage.add(addressImage);
-
     }
 
 

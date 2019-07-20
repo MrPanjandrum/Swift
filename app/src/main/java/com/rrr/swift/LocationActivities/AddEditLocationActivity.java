@@ -3,10 +3,12 @@ package com.rrr.swift.LocationActivities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -18,9 +20,11 @@ public class AddEditLocationActivity extends Activity
 
     private static final String TAG = "AddEditLocationActivity";
 
+
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Locations");
+
 
 
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -33,10 +37,22 @@ public class AddEditLocationActivity extends Activity
         setContentView(R.layout.activity_add_edit_location);
         Log.d(TAG,"onCreate: started.");
 
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.floatingActionButton);
+
         recyclerView = findViewById(R.id.location_add_edit_recyclerview);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent myIntent = new Intent(AddEditLocationActivity.this, AddLocation.class);
+                AddEditLocationActivity.this.startActivity(myIntent);
+            }
+        });
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////

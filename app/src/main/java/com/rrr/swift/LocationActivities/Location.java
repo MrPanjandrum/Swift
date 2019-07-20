@@ -22,6 +22,11 @@ public class Location
         this.taskArea = taskArea;
     }
 
+    public Location(String address)
+    {
+        this.address = address;
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

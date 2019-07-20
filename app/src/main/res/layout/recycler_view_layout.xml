@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/parent_layout"
-    android:background="#9D213D">
+    android:id="@+id/parent_layout">
 
     
     <ImageView
@@ -12,30 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:layout_marginTop="8dp"
+        android:layout_margin="5dp"
         android:src="@mipmap/ic_launcher"
+        android:background="@drawable/shape2"
         />
+
 
     <TextView
         android:id="@+id/recycler_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Test Text"
-        android:layout_marginTop="10dp"
         android:textSize="20sp"
+        android:background="@drawable/shape"
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         />
 
+
     <View
         android:id="@+id/divider3"
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:background="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="#7A7A7A"
         android:visibility="visible" />
 
 

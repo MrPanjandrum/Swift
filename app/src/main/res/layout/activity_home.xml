@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,10 +21,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/shape2"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="210dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_vertical">
 
 
     <LinearLayout
@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Locations"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_gravity="start"
@@ -53,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Work Orders"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_gravity="end"
@@ -75,7 +77,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="0dp"
         android:orientation="horizontal"
-        android:backgroundTint="#7A7A7A">
+        android:backgroundTint="#A0A0A0">
 
 
         <ImageButton
@@ -83,7 +85,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             android:layout_gravity="start"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/icons8_real_estate_filled_50_white"
             android:layout_weight="1"
@@ -95,7 +97,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             android:layout_gravity="end"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/icons8_full_tool_storage_box_50_white"
             android:layout_weight="1"
@@ -118,7 +120,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             android:layout_gravity="start"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/settings_icon_white"
             android:layout_weight="1"
@@ -129,7 +131,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             android:layout_gravity="end"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/inspect_icon_white"
             android:layout_weight="1"
@@ -150,6 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Settings"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_gravity="start"
@@ -161,6 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Inspections"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_gravity="end"
@@ -170,36 +174,8 @@
 
     </LinearLayout>
 
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#FFFFFF"
-        android:layout_weight="20"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            android:layout_gravity="start"
-            android:src="@drawable/icons8_maintenance_50_white"
-            android:layout_weight="1"
-            android:background="@drawable/shape"/>
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            android:layout_gravity="end"
-            android:src="@drawable/icons8_saw_blade_50_2_white"
-            android:layout_weight="1"
-            android:background="@drawable/shape"/>
-    </LinearLayout>
--->
 
     </LinearLayout>
+
 
 </LinearLayout>

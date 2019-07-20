@@ -17,7 +17,7 @@
             android:id="@+id/et_dwelling_unit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_address_2"
+            android:hint="@string/hint_apt_num"
             android:singleLine="true"/>
     </android.support.design.widget.TextInputLayout>
 
