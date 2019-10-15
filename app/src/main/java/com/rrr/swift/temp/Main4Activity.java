@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.R;
+import com.rrr.swift.RegActivity.RegActivity;
 
 public class Main4Activity extends AppCompatActivity
 {
@@ -25,6 +27,7 @@ public class Main4Activity extends AppCompatActivity
 
     private EditText mEmail, mPassword;
     private Button btnSignIn, btnSignOut;
+    private TextView regLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,6 +40,7 @@ public class Main4Activity extends AppCompatActivity
         mPassword = (EditText) findViewById(R.id.login_password);
         btnSignIn = (Button) findViewById(R.id.login_btn);
         btnSignOut = (Button) findViewById(R.id.logout_btn);
+        regLink = findViewById(R.id.regAccount);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -89,6 +93,14 @@ public class Main4Activity extends AppCompatActivity
             {
                 mAuth.signOut();
                 toastMessage("Signing out...");
+            }
+        });
+
+        regLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity (new Intent(Main4Activity.this, RegActivity.class));
+                finish();
             }
         });
 

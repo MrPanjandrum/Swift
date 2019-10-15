@@ -12,6 +12,8 @@ import com.rrr.swift.HomeActivity;
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
+import com.rrr.swift.RegActivity.RegActivity;
+import com.rrr.swift.temp.Main4Activity;
 
 
 public class SplashActivity extends Activity
@@ -37,8 +39,7 @@ public class SplashActivity extends Activity
                         splashLogo.startAnimation(rotateAnimation);
                         splashLogo.setVisibility(View.INVISIBLE);
                         sleep(4000);
-                        Intent splashIntent = new Intent(getApplicationContext(), AddEditLocationActivity.class);
-                        startActivity(splashIntent);
+                       startActivity (new Intent(SplashActivity.this, Main4Activity.class));
                         finish();
                     }
                     catch (InterruptedException e)

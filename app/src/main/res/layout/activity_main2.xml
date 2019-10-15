@@ -22,7 +22,6 @@
             android:paddingTop="55dp"
             android:paddingBottom="40dp"
             android:layout_gravity="center"
-            android:src="@drawable/mh_logo"
             android:contentDescription="mercy haven logo"/>
 
 

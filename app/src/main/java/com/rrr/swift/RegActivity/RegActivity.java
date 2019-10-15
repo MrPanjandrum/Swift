@@ -17,6 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
+import com.rrr.swift.temp.Main4Activity;
 
 public class RegActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class RegActivity extends AppCompatActivity {
     EditText passwordText;
     EditText confirmPasswordText;
     Button regButton;
+    Button backButton;
     FirebaseAuth dataRef;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -43,6 +45,7 @@ public class RegActivity extends AppCompatActivity {
         passwordText = findViewById(R.id.password_reg);
         confirmPasswordText = findViewById(R.id.password2_reg);
         regButton = findViewById(R.id.btn_submit);
+        backButton = findViewById(R.id.btn_return);
 
         dataRef = FirebaseAuth.getInstance();
 
@@ -103,6 +106,14 @@ public class RegActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity (new Intent(RegActivity.this, Main4Activity.class));
+                finish();
             }
         });
 

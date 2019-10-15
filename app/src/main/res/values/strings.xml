@@ -25,7 +25,7 @@
     <string name="lastname_reg" >Enter Last Name</string>
     <string name="email_edit">Enter Email</string>
     <string name="password_edit">Enter Password</string>
-    <string name="reg_btn">Register</string>
+    <string name="reg_btn">Submit</string>
     <string name="confirm_password_edit">Confirm Password</string>
 
     //////////////////////////////////////////////////////////////////////////////
@@ -62,5 +62,6 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="return_btn">Back</string>
 
 </resources>
