@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LocationActivities.AddLocation"></activity>
+        <activity android:name=".RegActivity.RegActivity"></activity>
+        <activity android:name=".LocationActivities.AddLocation" />
         <activity android:name=".temp.Main4Activity" />
         <activity
             android:name=".Main2Activity"
