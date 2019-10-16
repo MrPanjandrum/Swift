@@ -1,4 +1,4 @@
-package com.rrr.swift.temp;
+package com.rrr.swift.AuthActivity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -15,10 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.R;
-import com.rrr.swift.AuthActivity.RegActivity;
 
-public class Main4Activity extends AppCompatActivity
-{
+
+public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "Main4Activity";
 
@@ -30,10 +29,9 @@ public class Main4Activity extends AppCompatActivity
     private TextView regLink;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_login);
 
         //declarations
         mEmail = (EditText) findViewById(R.id.login_email);
@@ -57,11 +55,11 @@ public class Main4Activity extends AppCompatActivity
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     toastMessage("Successfully signed in with: " + user.getEmail());
                 } else
-                    {
-                        //User is signed out
+                {
+                    //User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                     toastMessage("Successfully signed out.");
-                    }
+                }
             }
 
         };
@@ -76,13 +74,13 @@ public class Main4Activity extends AppCompatActivity
                 if(!email.equals("") && !pass.equals(""))
                 {
                     mAuth.signInWithEmailAndPassword(email,pass);
-                    Intent myIntent = new Intent(Main4Activity.this, AddEditLocationActivity.class);
-                    Main4Activity.this.startActivity(myIntent);
+                    Intent myIntent = new Intent(LoginActivity.this, AddEditLocationActivity.class);
+                    LoginActivity.this.startActivity(myIntent);
                 }
                 else
-                    {
+                {
                     toastMessage("You didn't fill in all the fields");
-                    }
+                }
             }
         });
 
@@ -99,7 +97,7 @@ public class Main4Activity extends AppCompatActivity
         regLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity (new Intent(Main4Activity.this, RegActivity.class));
+                startActivity (new Intent(LoginActivity.this, RegActivity.class));
                 finish();
             }
         });
@@ -144,10 +142,5 @@ public class Main4Activity extends AppCompatActivity
     }
 
 
-
-
-
-
-
-
 }
+

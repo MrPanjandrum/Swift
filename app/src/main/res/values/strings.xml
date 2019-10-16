@@ -22,7 +22,7 @@
     <string name="err_msg_password">Enter the password</string>
     <string name="reg_title">Registration</string>
     <string name="firstname_reg">Enter First Name</string>
-    <string name="lastname_reg" >Enter Last Name</string>
+    <string name="lastname_reg">Enter Last Name</string>
     <string name="email_edit">Enter Email</string>
     <string name="password_edit">Enter Password</string>
     <string name="reg_btn">Submit</string>
