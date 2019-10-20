@@ -1,4 +1,4 @@
-package com.rrr.swift.temp;
+package com.rrr.swift.LoginActivity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,40 +8,35 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
-import com.rrr.swift.RegistrationActivity.RegActivity;
 
-public class Main4Activity extends AppCompatActivity
+public class LoginActivity extends AppCompatActivity
 {
 
-    private static final String TAG = "Main4Activity";
+    private static final String TAG = "LoginActivity";
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private EditText mEmail, mPassword;
     private Button btnSignIn, btnSignOut;
-    private TextView regLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_login);
 
         //declarations
         mEmail = (EditText) findViewById(R.id.login_email);
         mPassword = (EditText) findViewById(R.id.login_password);
         btnSignIn = (Button) findViewById(R.id.login_btn);
         btnSignOut = (Button) findViewById(R.id.logout_btn);
-        regLink = findViewById(R.id.regAccount);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -58,11 +53,11 @@ public class Main4Activity extends AppCompatActivity
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     toastMessage("Successfully signed in with: " + user.getEmail());
                 } else
-                {
-                    //User is signed out
+                    {
+                        //User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                     toastMessage("Successfully signed out.");
-                }
+                    }
             }
 
         };
@@ -77,13 +72,13 @@ public class Main4Activity extends AppCompatActivity
                 if(!email.equals("") && !pass.equals(""))
                 {
                     mAuth.signInWithEmailAndPassword(email,pass);
-                    Intent myIntent = new Intent(Main4Activity.this, Main2Activity.class);
-                    Main4Activity.this.startActivity(myIntent);
+                    Intent myIntent = new Intent(LoginActivity.this, Main2Activity.class);
+                    LoginActivity.this.startActivity(myIntent);
                 }
                 else
-                {
+                    {
                     toastMessage("You didn't fill in all the fields");
-                }
+                    }
             }
         });
 
@@ -94,14 +89,6 @@ public class Main4Activity extends AppCompatActivity
             {
                 mAuth.signOut();
                 toastMessage("Signing out...");
-            }
-        });
-
-        regLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity (new Intent(Main4Activity.this, RegActivity.class));
-                finish();
             }
         });
 
@@ -143,10 +130,6 @@ public class Main4Activity extends AppCompatActivity
     {
 
     }
-
-
-
-
 
 
 

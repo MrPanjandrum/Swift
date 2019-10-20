@@ -107,7 +107,6 @@ public class GalleryActivity extends Activity
 
             setImage(mAddressImage, mAddress);
 
-
         }
     }
 

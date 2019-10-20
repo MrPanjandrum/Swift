@@ -1,4 +1,4 @@
-package com.rrr.swift;
+package com.rrr.swift.temp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.rrr.swift.LocationActivities.LocationActivity;
+import com.rrr.swift.R;
 
 public class HomeActivity extends Activity
 {
@@ -19,9 +20,6 @@ public class HomeActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: started.");
-
-
-
     }
 
     public void openLocationActivity(View view)

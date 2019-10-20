@@ -17,13 +17,13 @@
 
         <ImageView
             android:layout_marginTop="45dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:paddingTop="55dp"
             android:paddingBottom="40dp"
             android:layout_gravity="center"
-            android:src="@drawable/mh_logo"
-            android:contentDescription="mercy haven logo"/>
+            android:src="@drawable/logo_640x480_no_background"
+            android:contentDescription="logo"/>
 
 
         <LinearLayout
@@ -131,7 +131,8 @@
                     android:layout_weight="3"
                     android:background="@drawable/shape"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/settings_icon_white"/>
+                    android:src="@drawable/settings_icon_white"
+                    android:onClick="openSettingsActivity"/>
 
                 <ImageButton
                     android:layout_width="0dp"

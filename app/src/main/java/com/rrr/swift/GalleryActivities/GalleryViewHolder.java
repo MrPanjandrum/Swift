@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.rrr.swift.R;
-import com.rrr.swift.TaskActivity.TaskActivity;
+import com.rrr.swift.TaskActivities.TaskActivity;
 
 import java.util.ArrayList;
 

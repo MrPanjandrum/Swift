@@ -1,4 +1,4 @@
-package com.rrr.swift.TaskActivity;
+package com.rrr.swift.TaskActivities;
 
 import android.app.Activity;
 import android.os.Bundle;

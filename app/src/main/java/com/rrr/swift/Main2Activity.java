@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rrr.swift.LocationActivities.LocationActivity;
+import com.rrr.swift.SettingsActivities.SettingsActivity;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -85,23 +86,23 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.nav_main_menu)   //handles navigation menu click
         {
-            Intent myIntent = new Intent(Main2Activity.this, HomeActivity.class);
+            Intent myIntent = new Intent(Main2Activity.this, Main2Activity.class);
             Main2Activity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_locations)
         {
-            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
+//            Main2Activity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_work_orders)
         {
-            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
+//            Main2Activity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_settings)
         {
-            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(Main2Activity.this, SettingsActivity.class);
+//            Main2Activity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_share)
         {
@@ -120,10 +121,15 @@ public class Main2Activity extends AppCompatActivity
 
     public void openLocationActivity(View view)
     {
-        Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-        Main2Activity.this.startActivity(myIntent);
+        //Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
+        //Main2Activity.this.startActivity(myIntent);
     }
 
+    public void openSettingsActivity(View view)
+    {
+        //Intent myIntent = new Intent(Main2Activity.this, SettingsActivity.class);
+        //Main2Activity.this.startActivity(myIntent);
+    }
 
 
 

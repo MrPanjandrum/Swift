@@ -11,16 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LocationActivities.AddLocation"></activity>
-        <activity android:name=".temp.Main4Activity" />
+        <activity android:name=".temp.Main4Activity"></activity>
+        <activity android:name=".RegistrationActivity.RegActivity" />
+        <activity android:name=".TaskActivities.AddTask2" />
+        <activity android:name=".TaskActivities.AddTask1" />
+        <activity android:name=".SettingsActivities.SettingsActivity" />
+        <activity android:name=".LocationActivities.AddLocation" />
+        <activity android:name=".LoginActivity.LoginActivity" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".temp.HomeActivity" />
         <activity android:name=".LocationActivities.LocationEditDetailsActivity" />
         <activity android:name=".LocationActivities.AddEditLocationActivity" />
-        <activity android:name=".TaskActivity.TaskActivity" />
+        <activity android:name=".TaskActivities.TaskActivity" />
         <activity android:name=".SearchExampleActivites.MainActivity" />
         <activity android:name=".GalleryActivities.GalleryActivity" />
         <activity android:name=".LocationActivities.LocationActivity" />
