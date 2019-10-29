@@ -73,9 +73,19 @@ public class LoginActivity extends AppCompatActivity {
                 String pass = mPassword.getText().toString();
                 if(!email.equals("") && !pass.equals(""))
                 {
-                    mAuth.signInWithEmailAndPassword(email,pass);
-                    Intent myIntent = new Intent(LoginActivity.this, AddEditLocationActivity.class);
-                    LoginActivity.this.startActivity(myIntent);
+                    if(email.equals("admin@local404.com")) {
+
+                        mAuth.signInWithEmailAndPassword(email, pass);
+                        Intent myIntent = new Intent(LoginActivity.this, AddEditLocationActivity.class);//TODO: Admin Main Page
+                        LoginActivity.this.startActivity(myIntent);
+                    }
+                    else {
+                        mAuth.signInWithEmailAndPassword(email, pass);
+                        Intent myIntent = new Intent(LoginActivity.this, AddEditLocationActivity.class);//TODO: User Main Page
+                        LoginActivity.this.startActivity(myIntent);
+                    }
+
+
                 }
                 else
                 {
