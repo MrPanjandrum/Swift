@@ -1,4 +1,4 @@
-package com.rrr.swift.MainActivity;
+package com.rrr.swift.AuthActivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
