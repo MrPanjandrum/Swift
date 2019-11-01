@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AuthActivity.LoginActivity"></activity>
+        <activity android:name=".MainActivity.AdminRegActivity"></activity>
+        <activity android:name=".MainActivity.UserHomeActivity" />
+        <activity android:name=".MainActivity.AdminHomeActivity" />
+        <activity android:name=".AuthActivity.LoginActivity" />
         <activity android:name=".AuthActivity.RegActivity" />
         <activity android:name=".LocationActivities.AddLocation" />
         <activity android:name=".temp.Main4Activity" />

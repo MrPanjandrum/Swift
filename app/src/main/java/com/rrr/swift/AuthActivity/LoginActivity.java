@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
+import com.rrr.swift.MainActivity.AdminHomeActivity;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 
 
@@ -71,26 +73,28 @@ public class LoginActivity extends AppCompatActivity {
             {
                 String email = mEmail.getText().toString();
                 String pass = mPassword.getText().toString();
-                if(!email.equals("") && !pass.equals(""))
-                {
+
+
                     if(email.equals("admin@local404.com")) {
 
                         mAuth.signInWithEmailAndPassword(email, pass);
-                        Intent myIntent = new Intent(LoginActivity.this, AddEditLocationActivity.class);//TODO: Admin Main Page
+                        Intent myIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                         LoginActivity.this.startActivity(myIntent);
                     }
-                    else {
+
+                    else if(!email.equals("") && !pass.equals("")) {
                         mAuth.signInWithEmailAndPassword(email, pass);
-                        Intent myIntent = new Intent(LoginActivity.this, AddEditLocationActivity.class);//TODO: User Main Page
+                        Intent myIntent = new Intent(LoginActivity.this, UserHomeActivity.class);
                         LoginActivity.this.startActivity(myIntent);
                     }
 
+                    else
+                    {
+                        toastMessage("You didn't fill in all the fields");
+                    }
 
-                }
-                else
-                {
-                    toastMessage("You didn't fill in all the fields");
-                }
+
+
             }
         });
 
