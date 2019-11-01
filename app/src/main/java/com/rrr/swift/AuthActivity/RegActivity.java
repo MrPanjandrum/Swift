@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.rrr.swift.Main2Activity;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 import com.rrr.swift.temp.Main4Activity;
 
@@ -99,7 +99,7 @@ public class RegActivity extends AppCompatActivity {
                             Toast.makeText(RegActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            startActivity(new Intent(RegActivity.this, Main2Activity.class));
+                            startActivity(new Intent(RegActivity.this, UserHomeActivity.class));
                             finish();
                         }
 
