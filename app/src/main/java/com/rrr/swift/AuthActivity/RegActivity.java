@@ -58,6 +58,7 @@ public class RegActivity extends AppCompatActivity {
                 String password = passwordText.getText().toString().trim();
                 String confirmPassword = confirmPasswordText.getText().toString().trim();
 
+
                 if(TextUtils.isEmpty(firstName) || firstName.length() < 3 || firstName.length() > 30){
                     Toast.makeText(getApplicationContext(), "Enter First Name",
                             Toast.LENGTH_SHORT).show();
@@ -118,4 +119,5 @@ public class RegActivity extends AppCompatActivity {
         });
 
     }
+
 }

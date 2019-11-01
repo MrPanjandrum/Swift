@@ -63,5 +63,6 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="return_btn">Back</string>
+    <string name="admin_check">Administrator</string>
 
 </resources>
