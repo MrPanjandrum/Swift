@@ -33,6 +33,7 @@ public class RegActivity extends AppCompatActivity {
     Button backButton;
     FirebaseAuth dataRef;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String substr;
 
 
 
@@ -57,10 +58,10 @@ public class RegActivity extends AppCompatActivity {
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String firstName = firstNameText.getText().toString().trim();
-                String lastName = lastNameText.getText().toString().trim();
-                String email = emailText.getText().toString().trim();
-                String password = passwordText.getText().toString().trim();
+               final String firstName = firstNameText.getText().toString().trim();
+                final String lastName = lastNameText.getText().toString().trim();
+                final String email = emailText.getText().toString().trim();
+                final String password = passwordText.getText().toString().trim();
                 String confirmPassword = confirmPasswordText.getText().toString().trim();
 
 
@@ -93,17 +94,12 @@ public class RegActivity extends AppCompatActivity {
                     return;
                 }*/
 
-                String userId = email + password;
-
-                User user = new User(firstName, lastName, email, password, false);
-
-                mDatabase.child(userId).setValue(user);
-
                 //Creating User
                 dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Toast.makeText(RegActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
@@ -111,12 +107,17 @@ public class RegActivity extends AppCompatActivity {
                             Toast.makeText(RegActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
+
                             startActivity(new Intent(RegActivity.this, UserHomeActivity.class));
                             finish();
                         }
 
                     }
                 });
+                //Linking Created user with User object in Firebase
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                User user = new User(firstName, lastName, email, password, false);
+                mDatabase.child(userId).setValue(user);
 
             }
         });
