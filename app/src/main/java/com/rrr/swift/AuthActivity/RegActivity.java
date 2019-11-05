@@ -15,8 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
+import com.rrr.swift.SupportClasses.User;
 import com.rrr.swift.temp.Main4Activity;
 
 public class RegActivity extends AppCompatActivity {
@@ -48,6 +51,8 @@ public class RegActivity extends AppCompatActivity {
         backButton = findViewById(R.id.btn_return);
 
         dataRef = FirebaseAuth.getInstance();
+
+       final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +91,12 @@ public class RegActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Confirm Password", Toast.LENGTH_SHORT).show();
                     return;
                 }*/
+
+                String userId = email + password;
+
+                User user = new User(firstName, lastName, email, password, false);
+
+                mDatabase.child(userId).setValue(user);
 
                 //Creating User
                 dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {

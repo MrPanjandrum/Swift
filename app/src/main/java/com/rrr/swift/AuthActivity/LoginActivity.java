@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.MainActivity.AdminHomeActivity;
 import com.rrr.swift.MainActivity.UserHomeActivity;
@@ -25,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
 
     private EditText mEmail, mPassword;
     private Button btnSignIn, btnSignOut;
@@ -44,6 +49,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("mEmail");
+        mFirebaseDatabase = mFirebaseInstance.getReference("mPassword");
 
         mAuthListener = new FirebaseAuth.AuthStateListener()
         {
@@ -74,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
                 String email = mEmail.getText().toString();
                 String pass = mPassword.getText().toString();
 
-
                     if(email.equals("admin@local404.com")) {
 
                         mAuth.signInWithEmailAndPassword(email, pass);
@@ -82,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                         LoginActivity.this.startActivity(myIntent);
                     }
 
-                    else if(!email.equals("") && !pass.equals("")) {
+                    else if(!email.equals("") && !pass.equals("") && email == mFirebaseDatabase.child("User").child().getKey().child("mEmail")) {
                         mAuth.signInWithEmailAndPassword(email, pass);
                         Intent myIntent = new Intent(LoginActivity.this, UserHomeActivity.class);
                         LoginActivity.this.startActivity(myIntent);
