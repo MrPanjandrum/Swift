@@ -33,7 +33,6 @@ public class RegActivity extends AppCompatActivity {
     Button backButton;
     FirebaseAuth dataRef;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    String substr;
 
 
 

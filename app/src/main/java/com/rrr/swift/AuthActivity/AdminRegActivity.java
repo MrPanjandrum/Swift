@@ -10,15 +10,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.MainActivity.AdminHomeActivity;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
+import com.rrr.swift.SupportClasses.User;
 import com.rrr.swift.temp.Main4Activity;
 
 public class AdminRegActivity extends AppCompatActivity {
@@ -30,7 +34,8 @@ public class AdminRegActivity extends AppCompatActivity {
     EditText confirmPasswordText;
     Button regButton;
     Button backButton;
-    String admin;
+    CheckBox adminCheck;
+    Boolean admin;
     FirebaseAuth dataRef;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -45,8 +50,11 @@ public class AdminRegActivity extends AppCompatActivity {
         confirmPasswordText = findViewById(R.id.password2_reg);
         regButton = findViewById(R.id.btn_submit);
         backButton = findViewById(R.id.btn_return);
+        adminCheck = findViewById(R.id.admin_check);
 
         dataRef = FirebaseAuth.getInstance();
+
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +64,18 @@ public class AdminRegActivity extends AppCompatActivity {
                 String email = emailText.getText().toString().trim();
                 String password = passwordText.getText().toString().trim();
                 String confirmPassword = confirmPasswordText.getText().toString().trim();
+
+               // adminCheck.setOnClickListener(new View.OnClickListener() {
+                   // @Override
+                   // public void onClick(View v) {
+                        if(adminCheck.isChecked()) {
+                            admin = true;
+                        }
+                        else{
+                            admin = false;
+                        }
+                   //}
+               // });
 
 
                 if(TextUtils.isEmpty(firstName) || firstName.length() < 3 || firstName.length() > 30){
@@ -99,12 +119,17 @@ public class AdminRegActivity extends AppCompatActivity {
                             Toast.makeText(AdminRegActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            startActivity(new Intent(AdminRegActivity.this, UserHomeActivity.class));
+                            startActivity(new Intent(AdminRegActivity.this, AdminHomeActivity.class));
                             finish();
                         }
 
                     }
                 });
+
+
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                User user = new User(firstName, lastName, email, password, admin);
+                mDatabase.child(userId).setValue(user);
 
             }
         });
@@ -119,12 +144,6 @@ public class AdminRegActivity extends AppCompatActivity {
 
     }
 
-    public void adminCheckedbox(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
 
-        if(checked){
-             admin = "T";
-        }
-    }
 }
 

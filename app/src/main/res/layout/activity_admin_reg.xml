@@ -110,7 +110,6 @@
         android:layout_marginTop="27dp"
         android:paddingStart="40dp"
         android:text="@string/admin_check"
-        android:onClick="adminCheckedbox"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/admin_check"
         app:layout_constraintTop_toBottomOf="@id/password2_reg"/>

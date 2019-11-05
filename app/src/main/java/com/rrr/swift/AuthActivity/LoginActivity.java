@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Intent myIntent = new Intent(LoginActivity.this, UserHomeActivity.class);
+                                    Intent myIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                                     LoginActivity.this.startActivity(myIntent);
 
                                 } else {
