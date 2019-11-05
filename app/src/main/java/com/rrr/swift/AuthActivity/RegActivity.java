@@ -113,6 +113,7 @@ public class RegActivity extends AppCompatActivity {
 
                     }
                 });
+
                 //Linking Created user with User object in Firebase
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 User user = new User(firstName, lastName, email, password, false);

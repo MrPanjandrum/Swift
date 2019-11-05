@@ -3,6 +3,7 @@ package com.rrr.swift.AuthActivity;
 import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,6 +20,7 @@ import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,9 +42,11 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
     private EditText mEmail, mPassword;
     private Button btnSignIn, btnSignOut;
     private TextView regLink;
+    Boolean isAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().getRef().child("mAdmin");
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -76,6 +82,35 @@ public class LoginActivity extends AppCompatActivity {
 
         };
 
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final DatabaseReference userRef = database.getReference("Users").child(userId).child("mAdmin");
+        userRef.equalTo("mAdmin").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final Boolean isAdmin = dataSnapshot.getValue(Boolean.class);
+                Query query = userRef.equalTo("mAdmin");
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        DataSnapshot adminChild = dataSnapshot.child("mAdmin");
+                        String test = adminChild.getValue().toString();
+                        Log.d("Query", test);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,8 +125,10 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Intent myIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                                    LoginActivity.this.startActivity(myIntent);
+
+                                        Intent myIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                                        LoginActivity.this.startActivity(myIntent);
+
 
                                 } else {
                                     // If sign in fails, display a message to the user.
