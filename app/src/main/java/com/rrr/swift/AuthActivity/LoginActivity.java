@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_login);
 
         //declarations
         mEmail = (EditText) findViewById(R.id.login_email);
@@ -63,7 +63,9 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().getRef().child("mAdmin");
+       // final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().getRef().child("mAdmin");
+        final DatabaseReference mDatabase = database.getReference("Users");
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -82,33 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
         };
 
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final DatabaseReference userRef = database.getReference("Users").child(userId).child("mAdmin");
-        userRef.equalTo("mAdmin").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final Boolean isAdmin = dataSnapshot.getValue(Boolean.class);
-                Query query = userRef.equalTo("mAdmin");
-                query.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        DataSnapshot adminChild = dataSnapshot.child("mAdmin");
-                        String test = adminChild.getValue().toString();
-                        Log.d("Query", test);
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +101,39 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
+
+
+
+
+                                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                    String admin = mDatabase.child(userId).child("mAdmin").toString();
+                                    Log.e("mAdmin", admin);
+                                   /* final DatabaseReference userRef = database.getReference("mAdmin");
+                                    userRef.equalTo("mAdmin").addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            final Boolean isAdmin = dataSnapshot.getValue(Boolean.class);
+                                            Query query = userRef.equalTo("mAdmin");
+                                            query.addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    DataSnapshot adminChild = dataSnapshot.child("mAdmin");
+                                                    String test = adminChild.getValue().toString();
+                                                    Log.d("Query", test);
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                }
+                                            });
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                        }
+                                    });*/
 
                                         Intent myIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                                         LoginActivity.this.startActivity(myIntent);
