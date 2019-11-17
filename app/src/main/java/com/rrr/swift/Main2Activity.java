@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -21,12 +22,14 @@ public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
+    private static final String TAG = "Main2Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Log.d(TAG, "onCreate: started.");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -56,7 +59,7 @@ public class Main2Activity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+       getMenuInflater().inflate(R.menu.main2, menu);
         return true;
     }
 
@@ -121,14 +124,14 @@ public class Main2Activity extends AppCompatActivity
 
     public void openLocationActivity(View view)
     {
-        //Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-        //Main2Activity.this.startActivity(myIntent);
+        Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
+        Main2Activity.this.startActivity(myIntent);
     }
 
     public void openSettingsActivity(View view)
     {
-        //Intent myIntent = new Intent(Main2Activity.this, SettingsActivity.class);
-        //Main2Activity.this.startActivity(myIntent);
+        Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+        startActivity(settingsIntent);
     }
 
 

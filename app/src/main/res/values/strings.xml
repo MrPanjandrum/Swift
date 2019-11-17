@@ -1,12 +1,15 @@
 <resources>
 
-    <string name="app_name">Swift</string>
+    <string name="app_name">Local 404</string>
     <string name="locations_title">Locations</string>
 
     //////////////////////////////////////////////////////////////////////////////
 
     //Edit Text Layout
     <string name="action_settings">Settings</string>
+    <string name="hint_task_name">Task Name</string>
+    <string name="hint_room_name">Room</string>
+    <string name="hint_task_description">Task Description</string>
     <string name="hint_street_address">Street Address</string>
     <string name="hint_city">City</string>
     <string name="hint_apt_num">Apartment Number</string>

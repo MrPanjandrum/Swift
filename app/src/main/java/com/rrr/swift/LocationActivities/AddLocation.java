@@ -17,7 +17,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
+import com.rrr.swift.SettingsActivities.SettingsActivity;
 
 public class AddLocation extends AppCompatActivity
 {
@@ -114,7 +116,7 @@ public class AddLocation extends AppCompatActivity
                 maxID = maxID + 1;
                 Log.d(TAG,"maxID after increment is: " + maxID);
 
-                Intent myIntent = new Intent(AddLocation.this, AddEditLocationActivity.class);
+                Intent myIntent = new Intent(AddLocation.this, Main2Activity.class);
                 AddLocation.this.startActivity(myIntent);
                 }
             }

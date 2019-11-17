@@ -8,11 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,25 +18,28 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rrr.swift.LocationActivities.AddEditLocationActivity;
-import com.rrr.swift.LocationActivities.AddLocation;
 import com.rrr.swift.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class AddTask2 extends AppCompatActivity
+public class AddTask2Activity extends AppCompatActivity
 {
 
     private static final String TAG = "AddTask2Activity";
 
     private ArrayList<String> mAddress = new ArrayList<>();
 
+
     private Button mSubmit;
-    private EditText mNewTask;
+    private EditText mTaskName, mTaskArea, mTaskDescription;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
+    private TextView taskLocation;
+    private String defaultTaskStatus = "stopped";
 
     int maxID = 0;
 
@@ -50,10 +51,23 @@ public class AddTask2 extends AppCompatActivity
         Log.d(TAG, "onCreate: started.");
 
         mSubmit = (Button) findViewById(R.id.add_task_btn);
-        mNewTask = (EditText) findViewById(R.id.et_new_task);
+        mTaskName = (EditText) findViewById(R.id.et_task_name);
+        mTaskArea = (EditText) findViewById(R.id.et_task_area);
+        mTaskDescription = (EditText)findViewById(R.id.et_task_description);
+
+        
+        taskLocation = (TextView) findViewById(R.id.tv_selected_location);
+
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference().child("Tasks");
+
+
+        getIncomingIntent();
+
+        taskLocation.setText(mAddress.get(0));  //sets textview to selected task location
+
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener()
         {
@@ -104,23 +118,37 @@ public class AddTask2 extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.d(TAG, "onClick: Attempting to add object to database.");
-                String newTask = mNewTask.getText().toString().trim();
-                if(!newTask.equals(""))
+
+                String taskName = mTaskName.getText().toString().trim();
+                String taskArea = mTaskArea.getText().toString().trim();
+                String taskDescription = mTaskDescription.getText().toString().trim();
+
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
+                Date date = new Date();
+
+                if(!taskName.equals(""))
                 {
                     FirebaseUser user = mAuth.getCurrentUser();
                     //    String userID = user.getUid();  //causes crash if User Login Screen is bypassed
 
                     //Log.d(TAG,"maxID before increment is: " + maxID);
-                    myRef.child(String.valueOf(maxID+1)).child("address").setValue(newTask);
-                    toastMessage("Adding " + newTask + " to database...");
+                    myRef.child(String.valueOf(maxID+1)).child("address").setValue(mAddress.get(0));
+                    myRef.child(String.valueOf(maxID+1)).child("taskName").setValue(taskName);
+                    myRef.child(String.valueOf(maxID+1)).child("taskArea").setValue(taskArea);
+                    myRef.child(String.valueOf(maxID+1)).child("taskDescription").setValue(taskDescription);
+                    myRef.child(String.valueOf(maxID+1)).child("taskStatus").setValue(defaultTaskStatus);
+                    myRef.child(String.valueOf(maxID+1)).child("taskCreated").setValue(date);
+                    myRef.child(String.valueOf(maxID+1)).child("taskNum").setValue(maxID+1);
+
+                    toastMessage("Adding " + taskName + " to database...");
 
                     //reset the text
-                    mNewTask.setText("");
+                    mTaskName.setText("");
                     maxID = maxID + 1;
                     Log.d(TAG,"maxID after increment is: " + maxID);
 
-                    Intent myIntent = new Intent(AddTask2.this, AddEditLocationActivity.class);
-                    AddTask2.this.startActivity(myIntent);
+                    Intent myIntent = new Intent(AddTask2Activity.this, AddTask1Activity.class);
+                    AddTask2Activity.this.startActivity(myIntent);
                 }
             }
         });
@@ -133,7 +161,21 @@ public class AddTask2 extends AppCompatActivity
     }
 
 
+    private void getIncomingIntent()
+    {
+        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
 
+        if(getIntent().hasExtra("address"))
+        {
+            Log.d(TAG, "getIncomingIntent: found intent extras.");
+
+            mAddress = getIntent().getStringArrayListExtra("address");
+
+            Intent intent = new Intent(this, AddTask2Activity.class);
+            intent.putExtra("address",mAddress);
+
+        }
+    }
 
     private void toastMessage(String s)
     {

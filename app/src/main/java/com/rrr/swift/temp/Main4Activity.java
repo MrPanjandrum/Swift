@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
 import com.rrr.swift.RegistrationActivity.RegActivity;

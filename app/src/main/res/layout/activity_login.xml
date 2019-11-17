@@ -17,7 +17,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="logo"
         android:cropToPadding="false"
-        app:srcCompat="@drawable/cn_logo"
+        app:srcCompat="@drawable/logo_640x480_no_background"
         />
 
     <EditText
@@ -84,6 +84,7 @@
         android:text="Don't already have an account? Register Here."
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="15sp"
+
         />
 
     <TextView

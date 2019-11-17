@@ -3,15 +3,18 @@ package com.rrr.swift.SettingsActivities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.R;
-import com.rrr.swift.TaskActivities.AddTask1;
+import com.rrr.swift.TaskActivities.AddTask1Activity;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener
 {
+
+    private static final String TAG = "SettingsActivity";
 
     Button addEditLocBtn, addEditTaskBtn, addEditInspectBtn;
 
@@ -20,6 +23,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        Log.d(TAG, "onCreate: started.");
 
         addEditLocBtn = (Button) findViewById(R.id.add_edit_loc_btn);
         addEditTaskBtn = (Button) findViewById(R.id.add_edit_tsk_btn);
@@ -43,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.add_edit_tsk_btn:
-                Intent myIntent2 = new Intent(SettingsActivity.this, AddTask1.class);
+                Intent myIntent2 = new Intent(SettingsActivity.this, AddTask1Activity.class);
                 SettingsActivity.this.startActivity(myIntent2);
                  break;
 

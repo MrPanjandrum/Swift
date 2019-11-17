@@ -7,20 +7,27 @@ public class Location
     private String taskName;
     private String taskDescription;
     private String taskArea;
+    private String taskStatus;
+    private int taskNum;
+
 
 
     public Location() { }
 
 
 
-    public Location(String address, String addressImage, String taskName, String taskDescription, String taskArea)
+    public Location(String address, String addressImage, String taskName, String taskDescription, String taskArea, String taskStatus, int taskNum)
     {
         this.address = address;
         this.addressImage = addressImage;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.taskArea = taskArea;
+        this.taskStatus = taskStatus;
+        this.taskNum = taskNum;
     }
+
+
 
     public Location(String address)
     {
@@ -63,5 +70,18 @@ public class Location
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    
+    public String getTaskStatus() { return taskStatus; }
+
+    public void setTaskStatus(String taskStatus) { this.taskStatus = taskStatus; }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public int getTaskNum() { return  taskNum; }
+
+    public void setTaskNum(int taskNum) { this.taskNum = taskNum; }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 }

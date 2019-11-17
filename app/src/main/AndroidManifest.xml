@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".temp.Main4Activity"></activity>
         <activity android:name=".RegistrationActivity.RegActivity" />
-        <activity android:name=".TaskActivities.AddTask2" />
-        <activity android:name=".TaskActivities.AddTask1" />
+        <activity android:name=".TaskActivities.AddTask2Activity" />
+        <activity android:name=".TaskActivities.AddTask1Activity" />
         <activity android:name=".SettingsActivities.SettingsActivity" />
         <activity android:name=".LocationActivities.AddLocation" />
         <activity android:name=".LoginActivity.LoginActivity" />

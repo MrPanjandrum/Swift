@@ -19,12 +19,12 @@ import com.rrr.swift.R;
 
 import java.util.ArrayList;
 
-public class AddTask1 extends AppCompatActivity
+public class AddTask1Activity extends AppCompatActivity
 {
 
     private static final String TAG = "AddTask1Activity";
 
-    private ArrayList<String> mAddress = new ArrayList<>();
+    //private ArrayList<String> mAddress = new ArrayList<>();
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -47,8 +47,6 @@ public class AddTask1 extends AppCompatActivity
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-
-        getIncomingIntent();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -78,19 +76,5 @@ public class AddTask1 extends AppCompatActivity
     }
 
 
-    private void getIncomingIntent()
-    {
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
 
-        if(getIntent().hasExtra("address"))
-        {
-            Log.d(TAG, "getIncomingIntent: found intent extras.");
-
-            mAddress = getIntent().getStringArrayListExtra("address");
-
-            Intent intent = new Intent(this, AddTask2.class);
-            intent.putExtra("address",mAddress);
-
-        }
-    }
 }

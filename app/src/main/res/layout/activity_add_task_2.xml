@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaskActivities.AddTask2">
+    tools:context=".TaskActivities.AddTask2Activity">
 
     <TextView
         android:id="@+id/textView3"
@@ -27,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
-        android:text="Task Location: "
+        android:text="Selected Location: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
 
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/et_layout_address"
+        android:id="@+id/et_layout_task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -70,10 +70,46 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_task_location">
 
         <EditText
-            android:id="@+id/et_new_task"
+            android:id="@+id/et_task_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_new_task"
+            android:hint="@string/hint_task_name"
+            android:singleLine="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/et_layout_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_layout_task_name">
+
+        <EditText
+            android:id="@+id/et_task_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_room_name"
+            android:singleLine="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/et_layout_task_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_layout_area">
+
+        <EditText
+            android:id="@+id/et_task_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_task_description"
             android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
 
@@ -88,6 +124,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_layout_address" />
+        app:layout_constraintTop_toBottomOf="@+id/et_layout_task_description" />
 
 </android.support.constraint.ConstraintLayout>
