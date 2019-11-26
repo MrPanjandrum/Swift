@@ -40,7 +40,7 @@ public class AddEditLocationViewHolder extends RecyclerView.ViewHolder
                 intent.putExtra("address",mAddress);
                 //intent.putExtra("address_image",mAddressImage);
                 context.startActivity(intent);
-                Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
+//                Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
             }
         });
 

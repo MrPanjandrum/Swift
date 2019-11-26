@@ -8,15 +8,18 @@ public class Location
     private String taskDescription;
     private String taskArea;
     private String taskStatus;
+    private String commentText;
+    private String commentDate;
     private int taskNum;
-
+    private long dateTest;
 
 
     public Location() { }
 
 
 
-    public Location(String address, String addressImage, String taskName, String taskDescription, String taskArea, String taskStatus, int taskNum)
+    public Location(String address, String addressImage, String taskName, String taskDescription, String taskArea,
+                    String taskStatus, int taskNum, String commentText, String commentDate, long dateTest)
     {
         this.address = address;
         this.addressImage = addressImage;
@@ -25,6 +28,9 @@ public class Location
         this.taskArea = taskArea;
         this.taskStatus = taskStatus;
         this.taskNum = taskNum;
+        this.commentText = commentText;
+        this.commentDate = commentDate;
+        this.dateTest = dateTest;
     }
 
 
@@ -82,6 +88,11 @@ public class Location
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public String getCommentText() { return commentText; }
 
+    public void setCommentText(String commentText) { this.commentText = commentText; }
 
+    public String getCommentDate() { return commentDate; }
+
+    public long getDateTest() { return dateTest;}
 }

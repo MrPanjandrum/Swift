@@ -49,9 +49,11 @@ public class RegActivity extends AppCompatActivity {
 
         dataRef = FirebaseAuth.getInstance();
 
-        regButton.setOnClickListener(new View.OnClickListener() {
+        regButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 String firstName = firstNameText.getText().toString().trim();
                 String lastName = lastNameText.getText().toString().trim();
                 String email = emailText.getText().toString().trim();
@@ -81,27 +83,29 @@ public class RegActivity extends AppCompatActivity {
                     return;
                 }
 
-
-                /*if (TextUtils.isEmpty(confirmPassword)|| password != confirmPassword) {
+                if (TextUtils.isEmpty(confirmPassword)|| password != confirmPassword) {
                     Toast.makeText(getApplicationContext(), "Confirm Password", Toast.LENGTH_SHORT).show();
                     return;
-                }*/
+                }
 
                 //Creating User
                 dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    public void onComplete(@NonNull Task<AuthResult> task)
+                    {
                         Toast.makeText(RegActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
+                        if (!task.isSuccessful())
+                        {
                             Toast.makeText(RegActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
-                        } else {
+                        } else
+                            {
                             startActivity(new Intent(RegActivity.this, Main2Activity.class));
                             finish();
-                        }
+                            }
 
                     }
                 });
@@ -109,9 +113,11 @@ public class RegActivity extends AppCompatActivity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 startActivity (new Intent(RegActivity.this, Main4Activity.class));
                 finish();
             }

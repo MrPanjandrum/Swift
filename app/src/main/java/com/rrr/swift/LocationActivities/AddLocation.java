@@ -62,12 +62,12 @@ public class AddLocation extends AppCompatActivity
                 {
                     //User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    toastMessage("Signed-in with: " + user.getEmail());
                 } else
                     {
                     //User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
-                    toastMessage("Successfully signed out.");
+                    toastMessage("Signed-out. Must sign-in.");
                     }
             }
 
@@ -101,11 +101,15 @@ public class AddLocation extends AppCompatActivity
             public void onClick(View view)
             {
             Log.d(TAG, "onClick: Attempting to add object to database.");
+
             String newLocation = mNewLocation.getText().toString().trim();
+
             if(!newLocation.equals(""))
                 {
                 FirebaseUser user = mAuth.getCurrentUser();
-            //    String userID = user.getUid();  //causes crash if User Login Screen is bypassed
+                String userID = user.getUid();  //causes crash if User Login Screen is bypassed
+
+                    Log.d(TAG,"User ID: "+userID);
 
                 Log.d(TAG,"maxID before increment is: " + maxID);
                 myRef.child(String.valueOf(maxID+1)).child("address").setValue(newLocation);
@@ -119,6 +123,10 @@ public class AddLocation extends AppCompatActivity
                 Intent myIntent = new Intent(AddLocation.this, Main2Activity.class);
                 AddLocation.this.startActivity(myIntent);
                 }
+            else
+                {
+                toastMessage("Please enter an address");
+                }
             }
             });
 
@@ -131,13 +139,17 @@ public class AddLocation extends AppCompatActivity
     protected void onStart()
     {
         super.onStart();
-       mAuth.addAuthStateListener(mAuthListener);
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
 
 
 
-
+    public void openAddEditLocationActivity(View view)
+    {
+        Intent myIntent = new Intent(AddLocation.this, AddEditLocationActivity.class);
+        AddLocation.this.startActivity(myIntent);
+    }
 
 
 
@@ -145,6 +157,7 @@ public class AddLocation extends AppCompatActivity
     {
         Toast.makeText(this, s,Toast.LENGTH_SHORT).show();
     }
+
 
 
 }

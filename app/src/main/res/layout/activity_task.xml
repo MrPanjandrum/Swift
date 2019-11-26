@@ -2,7 +2,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
 
     <TextView
@@ -10,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sample Address"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:gravity="center"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
@@ -21,13 +23,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/address"
-        android:background="@drawable/shape2">
+        android:background="@drawable/shape4">
 
         <RelativeLayout
             android:id="@+id/layout_task_name_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp">
+            android:layout_margin="0dp">
 
             <TextView
                 android:id="@+id/taskName"
@@ -35,10 +37,11 @@
                 android:layout_height="wrap_content"
                 android:text="Task Name"
                 android:textColor="@android:color/white"
-                android:textSize="28sp"
-                android:textStyle="normal"
+                android:textSize="23sp"
+                android:textStyle="bold"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
                 android:layout_margin="5dp"/>
 
             <ImageView
@@ -46,6 +49,7 @@
                 android:src="@drawable/icons8_traffic_light_64"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
+                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_margin="5dp"/>
@@ -65,7 +69,7 @@
             android:layout_height="wrap_content"
             android:text="Task Area"
             android:textColor="@android:color/white"
-            android:textSize="23sp"
+            android:textSize="18sp"
             android:layout_marginTop="0dp"
             android:layout_marginLeft="5dp"
             android:layout_below="@id/divider3"/>
@@ -84,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="Created:"
                 android:textColor="@android:color/white"
-                android:textSize="23sp"
+                android:textSize="18sp"
                 android:layout_alignParentLeft="true"/>
 
             <TextView
@@ -93,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:text="Task Creation Date"
                 android:textColor="@android:color/white"
-                android:textSize="23sp"
+                android:textSize="18sp"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/tv_created_date_title"/>
 
@@ -106,7 +110,7 @@
             android:layout_height="wrap_content"
             android:text="Task Description"
             android:textColor="@android:color/white"
-            android:textSize="23sp"
+            android:textSize="18sp"
             android:layout_margin="5dp"
             android:layout_below="@id/layout_task_created"/>
 
@@ -124,16 +128,15 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_below="@id/layout_bubble"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/shape2">
+        android:layout_marginTop="3dp"
+        android:background="@drawable/shape4">
 
         <Button
             android:id="@+id/btn_task_start"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Start"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginLeft="15dp"
             android:layout_centerVertical="true"/>
 
@@ -142,7 +145,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Stop"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_centerInParent="true"
             android:layout_centerVertical="true" />
 
@@ -151,23 +154,77 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Finish"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginRight="15dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
 
-    <EditText
+
+    <RelativeLayout
+        android:id="@+id/layout_add_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout_btns"
-        android:background="@drawable/shape2"
+        android:layout_below="@id/layout_btns">
+
+    <EditText
+        android:id="@+id/et_task_comment"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toStartOf="@id/btn_comment_submit"
+        android:hint="Enter New Comment Here"/>
+
+        <Button
+            android:id="@+id/btn_comment_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Submit"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/parent_layout_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_add_comment"
+            android:background="@drawable/shape3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_comments_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments:"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/task_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:hint="Comment Here"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/tv_comments_title"/>
 
+</RelativeLayout>
 
-
+    </RelativeLayout>
 
 </RelativeLayout>

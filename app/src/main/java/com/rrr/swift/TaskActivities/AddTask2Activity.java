@@ -20,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rrr.swift.R;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class AddTask2Activity extends AppCompatActivity
@@ -30,7 +32,6 @@ public class AddTask2Activity extends AppCompatActivity
     private static final String TAG = "AddTask2Activity";
 
     private ArrayList<String> mAddress = new ArrayList<>();
-
 
     private Button mSubmit;
     private EditText mTaskName, mTaskArea, mTaskDescription;
@@ -79,12 +80,12 @@ public class AddTask2Activity extends AppCompatActivity
                 {
                     //User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    toastMessage("Signed-in with: " + user.getEmail());
                 } else
                 {
                     //User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
-                    toastMessage("Successfully signed out.");
+                    toastMessage("Signed-out. Must sign-in.");
                 }
             }
 
@@ -112,6 +113,7 @@ public class AddTask2Activity extends AppCompatActivity
             }
         });
 
+
         mSubmit.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -123,21 +125,22 @@ public class AddTask2Activity extends AppCompatActivity
                 String taskArea = mTaskArea.getText().toString().trim();
                 String taskDescription = mTaskDescription.getText().toString().trim();
 
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
-                Date date = new Date();
+
+                long epoch = System.currentTimeMillis()/1000;       //gets current epoch time
+
 
                 if(!taskName.equals(""))
                 {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    //    String userID = user.getUid();  //causes crash if User Login Screen is bypassed
+                    String userID = user.getUid();  //causes crash if User Login Screen is bypassed
 
                     //Log.d(TAG,"maxID before increment is: " + maxID);
-                    myRef.child(String.valueOf(maxID+1)).child("address").setValue(mAddress.get(0));
+                    myRef.child(String.valueOf(maxID+1)).child("address").setValue(mAddress.get(0));    //sets values to firebase rtb
                     myRef.child(String.valueOf(maxID+1)).child("taskName").setValue(taskName);
                     myRef.child(String.valueOf(maxID+1)).child("taskArea").setValue(taskArea);
                     myRef.child(String.valueOf(maxID+1)).child("taskDescription").setValue(taskDescription);
                     myRef.child(String.valueOf(maxID+1)).child("taskStatus").setValue(defaultTaskStatus);
-                    myRef.child(String.valueOf(maxID+1)).child("taskCreated").setValue(date);
+                    myRef.child(String.valueOf(maxID+1)).child("dateTest").setValue(epoch);
                     myRef.child(String.valueOf(maxID+1)).child("taskNum").setValue(maxID+1);
 
                     toastMessage("Adding " + taskName + " to database...");
@@ -154,10 +157,12 @@ public class AddTask2Activity extends AppCompatActivity
         });
 
 
-
-
-
-
+    }
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
 

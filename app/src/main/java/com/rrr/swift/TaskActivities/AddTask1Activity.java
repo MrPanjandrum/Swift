@@ -1,20 +1,21 @@
 package com.rrr.swift.TaskActivities;
 
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.LocationActivities.AddEditLocationViewHolder;
 import com.rrr.swift.LocationActivities.Location;
+import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
 
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ public class AddTask1Activity extends AppCompatActivity
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Locations");
-
 
 
 
@@ -76,5 +76,9 @@ public class AddTask1Activity extends AppCompatActivity
     }
 
 
-
+    public void openHomeActivity(View view)
+    {
+        Intent homeIntent = new Intent(getApplicationContext(), Main2Activity.class);
+        startActivity(homeIntent);
+    }
 }

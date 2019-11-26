@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
 import com.rrr.swift.R;
@@ -16,7 +17,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     private static final String TAG = "SettingsActivity";
 
-    Button addEditLocBtn, addEditTaskBtn, addEditInspectBtn;
+    Button addEditLocBtn, addEditTaskBtn, addEditInspectBtn, addReportBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,10 +29,12 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         addEditLocBtn = (Button) findViewById(R.id.add_edit_loc_btn);
         addEditTaskBtn = (Button) findViewById(R.id.add_edit_tsk_btn);
         addEditInspectBtn = (Button) findViewById(R.id.add_edit_insp_btn);
+        addReportBtn = (Button) findViewById(R.id.add_report_btn);
 
         addEditLocBtn.setOnClickListener(this);
         addEditTaskBtn.setOnClickListener(this);
         addEditInspectBtn.setOnClickListener(this);
+        addReportBtn.setOnClickListener(this);
 
     }
 
@@ -52,10 +55,20 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                  break;
 
             case R.id.add_edit_insp_btn:
-                Intent myIntent3 = new Intent(SettingsActivity.this, AddEditLocationActivity.class);
-                SettingsActivity.this.startActivity(myIntent3);
+                toastMessage("Add Inpspection Clicked");
                   break;
+
+            case R.id.add_report_btn:
+                toastMessage("Add Report Clicked");
+                break;
         }
+    }
+
+
+
+    private void toastMessage(String s)
+    {
+        Toast.makeText(this, s,Toast.LENGTH_SHORT).show();
     }
 
 }
