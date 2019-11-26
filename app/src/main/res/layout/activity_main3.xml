@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="end"
+    android:background="@drawable/pale_sky">
+
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="200dp"
+            android:src="@drawable/mh_logo"
+            android:contentDescription="mercy haven logo"/>
+
+
+
+    <TableRow>
+
+                <TextView
+                    android:id="@+id/tv_locations"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:text="Locations"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_work_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:text="Work Orders"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+    </TableRow>
+
+
+    <TableRow>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:onClick="openLocationActivity"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icons8_real_estate_filled_50_white"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icons8_full_tool_storage_box_50_white"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"/>
+    </TableRow>
+
+    <TableRow>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icons8_setting_48"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/inspect_icon_white"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"/>
+    </TableRow>
+
+    <TableRow>
+            <TextView
+                    android:id="@+id/tv_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Settings"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_inspections"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Inspections"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+</TableRow>
+
+</TableLayout>
+
+
+
+
+    <include
+        layout="@layout/app_bar_main2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main2"
+        app:menu="@menu/activity_main2_drawer"/>
+
+
+
+
+
+</android.support.v4.widget.DrawerLayout>
