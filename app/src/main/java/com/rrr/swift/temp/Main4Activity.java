@@ -1,9 +1,9 @@
 package com.rrr.swift.temp;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rrr.swift.Main2Activity;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 import com.rrr.swift.RegistrationActivity.RegActivity;
 
@@ -76,7 +76,7 @@ public class Main4Activity extends AppCompatActivity
                 if(!email.equals("") && !pass.equals(""))
                 {
                     mAuth.signInWithEmailAndPassword(email,pass);
-                    Intent myIntent = new Intent(Main4Activity.this, Main2Activity.class);
+                    Intent myIntent = new Intent(Main4Activity.this, UserHomeActivity.class);
                     Main4Activity.this.startActivity(myIntent);
                 }
                 else

@@ -1,36 +1,30 @@
-package com.rrr.swift;
+package com.rrr.swift.MainActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
-import android.view.MenuItem;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
 import com.rrr.swift.LocationActivities.LocationActivity;
+import com.rrr.swift.R;
+import com.rrr.swift.ReportActivities.AddReportActivity;
 import com.rrr.swift.SettingsActivities.SettingsActivity;
-import com.rrr.swift.TaskActivities.TaskDetailActivity;
 import com.rrr.swift.TaskActivities.TaskListActivity;
 
-public class Main2Activity extends AppCompatActivity
+public class UserHomeActivity extends AppCompatActivity
 //        implements NavigationView.OnNavigationItemSelectedListener
 {
 
-    private static final String TAG = "Main2Activity";
+    private static final String TAG = "UserHomeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_user_home);
         Log.d(TAG, "onCreate: started.");
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -126,8 +120,8 @@ public class Main2Activity extends AppCompatActivity
 
     public void openLocationActivity(View view)
     {
-        Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-        Main2Activity.this.startActivity(myIntent);
+        Intent myIntent = new Intent(UserHomeActivity.this, LocationActivity.class);
+        UserHomeActivity.this.startActivity(myIntent);
     }
 
     public void openSettingsActivity(View view)
@@ -145,9 +139,9 @@ public class Main2Activity extends AppCompatActivity
 
     public void openReportActivity(View view)
     {
-//        Intent settingsIntent = new Intent(getApplicationContext(), ReportActivity.class);
-//        startActivity(settingsIntent);
-        toastMessage("Reports Button Pressed");
+        Intent settingsIntent = new Intent(getApplicationContext(), AddReportActivity.class);
+        startActivity(settingsIntent);
+//        toastMessage("Reports Button Pressed");
 
     }
 

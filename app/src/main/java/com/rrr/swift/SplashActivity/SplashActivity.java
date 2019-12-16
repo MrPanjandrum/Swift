@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.rrr.swift.AuthActivity.LoginActivity;
-import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
 
 

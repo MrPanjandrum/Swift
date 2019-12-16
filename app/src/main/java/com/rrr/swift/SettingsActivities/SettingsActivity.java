@@ -17,7 +17,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     private static final String TAG = "SettingsActivity";
 
-    Button addEditLocBtn, addEditTaskBtn, addEditInspectBtn, addReportBtn;
+    Button addEditLocBtn, addEditTaskBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,13 +28,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         addEditLocBtn = (Button) findViewById(R.id.add_edit_loc_btn);
         addEditTaskBtn = (Button) findViewById(R.id.add_edit_tsk_btn);
-        addEditInspectBtn = (Button) findViewById(R.id.add_edit_insp_btn);
-        addReportBtn = (Button) findViewById(R.id.add_report_btn);
 
         addEditLocBtn.setOnClickListener(this);
         addEditTaskBtn.setOnClickListener(this);
-        addEditInspectBtn.setOnClickListener(this);
-        addReportBtn.setOnClickListener(this);
 
     }
 
@@ -54,13 +50,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 SettingsActivity.this.startActivity(myIntent2);
                  break;
 
-            case R.id.add_edit_insp_btn:
-                toastMessage("Add Inpspection Clicked");
-                  break;
-
-            case R.id.add_report_btn:
-                toastMessage("Add Report Clicked");
-                break;
         }
     }
 

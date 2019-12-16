@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportActivities.ReportActivity">
+
+    <TextView
+        android:id="@+id/tv_location_selected_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Location: "
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/tv_selected_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Sample Location"
+        android:layout_toRightOf="@id/tv_location_selected_title"/>
+
+    <TextView
+        android:id="@+id/tv_total_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Total Tasks: "
+        android:layout_below="@id/tv_selected_location"/>
+
+    <TextView
+        android:id="@+id/tv_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample #"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/tv_total_tasks"
+        android:layout_below="@id/tv_location_selected_title"/>
+
+    <TextView
+        android:id="@+id/tv_completed_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Completed Tasks:"
+        android:layout_below="@id/tv_total_tasks"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>

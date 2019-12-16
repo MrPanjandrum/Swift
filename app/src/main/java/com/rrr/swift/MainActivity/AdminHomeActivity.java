@@ -1,19 +1,18 @@
 package com.rrr.swift.MainActivity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.rrr.swift.AuthActivity.AdminRegActivity;
-import com.rrr.swift.HomeActivity;
 import com.rrr.swift.LocationActivities.LocationActivity;
 import com.rrr.swift.R;
 
@@ -85,7 +84,7 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
 
         if (id == R.id.nav_main_menu)   //handles navigation menu click
         {
-            Intent myIntent = new Intent(AdminHomeActivity.this, HomeActivity.class);
+            Intent myIntent = new Intent(AdminHomeActivity.this, AdminHomeActivity.class);
             AdminHomeActivity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_locations)

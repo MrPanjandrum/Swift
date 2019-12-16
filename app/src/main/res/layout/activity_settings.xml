@@ -25,7 +25,7 @@
         android:columnCount="2"
         android:rowCount="2"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="180dp">
 
         <Button
             android:id="@+id/add_edit_loc_btn"
@@ -45,23 +45,6 @@
             android:layout_row="0"
             android:layout_column="1"/>
 
-        <Button
-            android:id="@+id/add_edit_insp_btn"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:text="Add Inspection"
-            android:layout_row="1"
-            android:layout_column="0"/>
-
-        <Button
-            android:id="@+id/add_report_btn"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:text="Add \nReport"
-            android:layout_row="1"
-            android:layout_column="1"/>
 
 
 

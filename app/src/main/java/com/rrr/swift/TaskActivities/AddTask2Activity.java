@@ -1,9 +1,9 @@
 package com.rrr.swift.TaskActivities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,11 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rrr.swift.R;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class AddTask2Activity extends AppCompatActivity
 {
@@ -153,6 +149,10 @@ public class AddTask2Activity extends AppCompatActivity
                     Intent myIntent = new Intent(AddTask2Activity.this, AddTask1Activity.class);
                     AddTask2Activity.this.startActivity(myIntent);
                 }
+                else
+                    {
+                        toastMessage("Enter a Task Name");
+                    }
             }
         });
 

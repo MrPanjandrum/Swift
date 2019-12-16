@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rrr.swift.LocationActivities.Location;
-import com.rrr.swift.Main2Activity;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 
 import java.text.DateFormat;
@@ -287,7 +287,7 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
 
                 Log.d(TAG,"Address Image: "+ mAddressImage.get(0));
 
-                Intent taskFinishIntent = new Intent(getApplicationContext(), Main2Activity.class);
+                Intent taskFinishIntent = new Intent(getApplicationContext(), UserHomeActivity.class);
                 startActivity(taskFinishIntent);
                 break;
         }
