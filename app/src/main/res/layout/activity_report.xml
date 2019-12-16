@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Location: "
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/tv_selected_location"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Sample Location"
-        android:layout_toRightOf="@id/tv_location_selected_title"/>
+        android:layout_toRightOf="@id/tv_location_selected_title"
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/tv_total_tasks"
@@ -28,7 +30,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Total Tasks: "
-        android:layout_below="@id/tv_selected_location"/>
+        android:layout_below="@id/tv_selected_location"
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/tv_tasks"
@@ -37,16 +40,36 @@
         android:text="Sample #"
         android:textSize="20sp"
         android:layout_toRightOf="@id/tv_total_tasks"
-        android:layout_below="@id/tv_location_selected_title"/>
+        android:layout_below="@id/tv_location_selected_title"
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/tv_completed_tasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Completed Tasks:"
-        android:layout_below="@id/tv_total_tasks"/>
+        android:text="Completed Tasks: "
+        android:layout_below="@id/tv_total_tasks"
+        android:layout_margin="5dp"/>
 
+    <TextView
+        android:id="@+id/tv_completed_task_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Sample #"
+        android:layout_toRightOf="@id/tv_completed_tasks"
+        android:layout_below="@id/tv_total_tasks"
+        android:layout_margin="5dp"/>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gallery_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tv_completed_tasks"/>
 
 
 

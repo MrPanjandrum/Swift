@@ -1,9 +1,9 @@
 package com.rrr.swift.AuthActivity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 import com.rrr.swift.SupportClasses.User;
-import com.rrr.swift.temp.Main4Activity;
 
 public class RegActivity extends AppCompatActivity {
 
@@ -88,10 +87,10 @@ public class RegActivity extends AppCompatActivity {
                 }
 
 
-                /*if (TextUtils.isEmpty(confirmPassword)|| password != confirmPassword) {
+                if (TextUtils.isEmpty(confirmPassword)|| !password.equals(confirmPassword)) {
                     Toast.makeText(getApplicationContext(), "Confirm Password", Toast.LENGTH_SHORT).show();
                     return;
-                }*/
+                }
 
                 //Creating User
                 dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
@@ -125,7 +124,7 @@ public class RegActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity (new Intent(RegActivity.this, Main4Activity.class));
+                startActivity (new Intent(RegActivity.this, LoginActivity.class));
                 finish();
             }
         });

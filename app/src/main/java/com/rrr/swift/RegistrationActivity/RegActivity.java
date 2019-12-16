@@ -81,10 +81,10 @@ public class RegActivity extends AppCompatActivity {
                 }
 
 
-                /*if (TextUtils.isEmpty(confirmPassword)|| password != confirmPassword) {
+                if (TextUtils.isEmpty(confirmPassword) || !password.equals(confirmPassword)) {
                     Toast.makeText(getApplicationContext(), "Confirm Password", Toast.LENGTH_SHORT).show();
                     return;
-                }*/
+                }
 
                 //Creating User
                 dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {

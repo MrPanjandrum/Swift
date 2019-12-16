@@ -272,7 +272,7 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
 
             case R.id.btn_task_finish:
 //                Log.d(TAG, "MaxID: "+ mTaskNum);
-                myRef.child(String.valueOf(taskNum)).child("taskTime").child("taskFinished").setValue(epoch);
+                myRef.child(String.valueOf(taskNum)).child("taskFinished").setValue(epoch);
                 myRef.child(String.valueOf(taskNum)).child("taskStatus").setValue("complete");
                 mTaskStatus.set(0,"complete");
                 getIncomingIntent();

@@ -1,16 +1,21 @@
 package com.rrr.swift.ReportActivities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.rrr.swift.GalleryActivities.GalleryViewHolder;
+import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
 import com.rrr.swift.TaskActivities.AddTask2Activity;
 
@@ -18,14 +23,23 @@ import java.util.ArrayList;
 
 public class ReportActivity extends AppCompatActivity
 {
+    private static final String TAG = "ReportActivity";
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
 
-    private static final String TAG = "ReportActivity";
+    RecyclerView recyclerView;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference reference = database.getReference("Tasks");
 
+    private ArrayList<Long> mDateTest = new ArrayList<>();
+    private ArrayList<Long> mTaskFinished = new ArrayList<>();
     private ArrayList<String> mAddress = new ArrayList<>();
-    private TextView taskLocation, totalTasks;
-    int taskNum = 1;
+    private ArrayList<String> mSnapshotAddress = new ArrayList<>();
+
+    private TextView taskLocation, totalTasks, completedTasks;
+
+    int numTasks;
+    int numTasksCompleted;
 
 
     @Override
@@ -35,31 +49,39 @@ public class ReportActivity extends AppCompatActivity
         setContentView(R.layout.activity_report);
         Log.d(TAG, "onCreate: started.");
 
+        getIncomingIntent();
+
         taskLocation = (TextView) findViewById(R.id.tv_selected_location);
         totalTasks = (TextView) findViewById(R.id.tv_tasks);
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference().child("Tasks").child(String.valueOf(taskNum)).child("taskTime");
+        completedTasks = (TextView) findViewById(R.id.tv_completed_task_num);
+//        mFirebaseDatabase = FirebaseDatabase.getInstance();
+//        myRef = mFirebaseDatabase.getReference().child("Tasks")/*.child(String.valueOf(taskNum))*/;
 
-        getIncomingIntent();
+
         taskLocation.setText(mAddress.get(0));
-
-        // Attach a listener to read the data at our posts reference
-        myRef.addValueEventListener(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                long childrenCount = dataSnapshot.getChildrenCount();
-                Log.d(TAG, "Children Count: "+childrenCount);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError)
-            {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+//
+//        // Attach a listener to read the data at our posts reference
+//        myRef.addValueEventListener(new ValueEventListener()
+//        {
+//            @RequiresApi(api = Build.VERSION_CODES.N)
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot)
+//            {
+//                long childrenCount = dataSnapshot.getChildrenCount();
+//                Log.d(TAG, "Children Count: "+childrenCount);
+////                Object value = dataSnapshot.getValue();
+////                Log.d(TAG, "Data Snapshot Value: " + value);
+////                showData(dataSnapshot);
+////                totalTasks.setText(String.valueOf(mDateTest.get(0)));
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError)
+//            {
+//                System.out.println("The read failed: " + databaseError.getCode());
+//            }
+//        });
 
 //        date.setText(String.valueOf(createDate));
 //        Calendar calendar1 = Calendar.getInstance();
@@ -74,7 +96,7 @@ public class ReportActivity extends AppCompatActivity
 //        long diffHours = diff / (60 * 60 * 1000);
 //        long diffDays = diff / (24 * 60 * 60 * 1000);
 //
-//        System.out.println("\nThe Date Different Example");
+//        System.out.println("\nThe Date Difference Example");
 //
 //        System.out.println("Cal 1: "+milliseconds1+"  Cal2: "+milliseconds2);
 //
@@ -88,8 +110,94 @@ public class ReportActivity extends AppCompatActivity
 //
 //        System.out.println("Time in days: " + diffDays + " days.");
 
+        recyclerView = findViewById(R.id.gallery_recyclerview);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
     }
 
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        Log.d(TAG, "onStart: started.");
+
+
+
+        FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
+                (
+                        Location.class, R.layout.recycler_view_task_layout, GalleryViewHolder.class, reference
+                )
+        {
+
+            @Override
+            protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
+            {
+
+                if(mAddress.contains(model.getAddress()) && model.getTaskStatus().contains("complete"))   //checks for incomplete tasks matching selected location
+                {
+                    viewHolder.itemView.setVisibility(View.VISIBLE);
+                    viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    viewHolder.setTaskDetails(model.getAddress(), model.getAddressImage(), model.getTaskName(), model.getTaskDescription(), model.getTaskArea(),
+                            model.getTaskStatus(), model.getTaskNum(), model.getDateTest());     //sets details to viewholder
+
+                    numTasksCompleted += 1;
+                    numTasks +=1;
+
+                    totalTasks.setText(String.valueOf(numTasks));
+                    completedTasks.setText(String.valueOf(numTasksCompleted));
+
+
+                }
+                else if(mAddress.contains(model.getAddress()))
+                {
+                    numTasks += 1;
+                    totalTasks.setText(String.valueOf(numTasks));
+                    completedTasks.setText(String.valueOf(numTasksCompleted));
+
+                    viewHolder.itemView.setVisibility(View.GONE);
+                    viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
+
+                }
+//                else
+//                {
+//                    viewHolder.itemView.setVisibility(View.GONE);
+//                    viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
+//                }
+            }
+        };
+
+        recyclerView.setAdapter(recyclerAdapter);
+    }
+
+
+    private void showData(DataSnapshot dataSnapshot)
+    {
+        for (DataSnapshot ds : dataSnapshot.getChildren())
+        {
+            Location location = new Location();
+            location.setDateTest(ds.getValue(Location.class).getDateTest());
+            location.setTaskFinished(ds.getValue(Location.class).getTaskFinished());
+            location.setAddress(ds.getValue(Location.class).getAddress());
+
+            Log.d(TAG, "showData:  address: " + location.getAddress());
+            Log.d(TAG, "showData:  dateTest: " + location.getDateTest());
+            Log.d(TAG, "showData:  taskFinished: " + location.getTaskFinished());
+
+
+            mDateTest.add(location.getDateTest());
+            mTaskFinished.add(location.getTaskFinished());
+            mSnapshotAddress.add(location.getAddress());
+
+            if(mAddress.equals(mSnapshotAddress))
+            {
+                Log.d(TAG,"Address Match!!!");
+            }
+            else
+            {Log.d(TAG, "No Match");}
+
+        }
+    }
 
 
     private void getIncomingIntent()

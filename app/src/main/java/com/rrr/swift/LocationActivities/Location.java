@@ -11,15 +11,20 @@ public class Location
     private String commentText;
     private String commentDate;
     private int taskNum;
+
+
+
     private long dateTest;
+    private long taskFinished;
 
 
     public Location() { }
 
 
 
+
     public Location(String address, String addressImage, String taskName, String taskDescription, String taskArea,
-                    String taskStatus, int taskNum, String commentText, String commentDate, long dateTest)
+                    String taskStatus, int taskNum, String commentText, String commentDate, long dateTest, long taskFinished)
     {
         this.address = address;
         this.addressImage = addressImage;
@@ -31,6 +36,7 @@ public class Location
         this.commentText = commentText;
         this.commentDate = commentDate;
         this.dateTest = dateTest;
+        this.taskFinished = taskFinished;
     }
 
 
@@ -95,4 +101,10 @@ public class Location
     public String getCommentDate() { return commentDate; }
 
     public long getDateTest() { return dateTest;}
+
+    public void setDateTest(long dateTest) { this.dateTest = dateTest; }
+
+    public long getTaskFinished() { return taskFinished; }
+
+    public void setTaskFinished(long taskFinished) { this.taskFinished = taskFinished; }
 }
