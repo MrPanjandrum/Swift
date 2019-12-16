@@ -26,8 +26,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     private ArrayList<String> mTaskArea = new ArrayList<>();
     private ArrayList<String> mTaskStatus = new ArrayList<>();
     private ArrayList<Integer> mTaskNum = new ArrayList<>();
-//    private ArrayList<String> mTaskCreated = new ArrayList<>();
-    private ArrayList<Long> mDateTest = new ArrayList<>();
+    private ArrayList<Long> mDateTest = new ArrayList<>();  //created date
 
     public GalleryViewHolder(View itemView)
     {
@@ -60,15 +59,19 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     }
 
     public void setTaskDetails(String address, String addressImage, String taskName, String taskDescription,
-                               String taskArea, String taskStatus, int taskNum, long dateTest)
+                               String taskArea, String taskStatus, int taskNum, long dateTest, long taskFinished)
     {
 
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
         TextView tskDescription = mView.findViewById(R.id.recycler_task_description);
         ImageView tskStatus = mView.findViewById(R.id.recycler_task_status);
+        TextView tskCreated = mView.findViewById(R.id.recycler_task_created_date);
+        TextView tskFinished = mView.findViewById(R.id.recycler_task_finished_date);
 
         tskName.setText(taskName);
         tskDescription.setText(taskDescription);
+        tskCreated.setText(String.valueOf(dateTest));
+        tskFinished.setText(String.valueOf(taskFinished));
 
         mAddress.add(address);
         mAddressImage.add(addressImage);

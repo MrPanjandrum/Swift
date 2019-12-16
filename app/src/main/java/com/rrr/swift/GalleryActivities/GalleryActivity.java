@@ -80,7 +80,7 @@ public class GalleryActivity extends Activity
             viewHolder.itemView.setVisibility(View.VISIBLE);
             viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             viewHolder.setTaskDetails(model.getAddress(), model.getAddressImage(), model.getTaskName(), model.getTaskDescription(), model.getTaskArea(),
-                                        model.getTaskStatus(), model.getTaskNum(), model.getDateTest());     //sets details to viewholder
+                                        model.getTaskStatus(), model.getTaskNum(), model.getDateTest(), model.getTaskFinished());     //sets details to viewholder
         }
     else
         {

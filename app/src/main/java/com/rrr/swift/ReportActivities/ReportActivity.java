@@ -126,7 +126,7 @@ public class ReportActivity extends AppCompatActivity
 
         FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
                 (
-                        Location.class, R.layout.recycler_view_task_layout, GalleryViewHolder.class, reference
+                        Location.class, R.layout.recycler_view_report_layout, GalleryViewHolder.class, reference
                 )
         {
 
@@ -139,7 +139,7 @@ public class ReportActivity extends AppCompatActivity
                     viewHolder.itemView.setVisibility(View.VISIBLE);
                     viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     viewHolder.setTaskDetails(model.getAddress(), model.getAddressImage(), model.getTaskName(), model.getTaskDescription(), model.getTaskArea(),
-                            model.getTaskStatus(), model.getTaskNum(), model.getDateTest());     //sets details to viewholder
+                            model.getTaskStatus(), model.getTaskNum(), model.getDateTest(), model.getTaskFinished());     //sets details to viewholder
 
                     numTasksCompleted += 1;
                     numTasks +=1;
@@ -159,11 +159,11 @@ public class ReportActivity extends AppCompatActivity
                     viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
 
                 }
-//                else
-//                {
-//                    viewHolder.itemView.setVisibility(View.GONE);
-//                    viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
-//                }
+                else
+                {
+                    viewHolder.itemView.setVisibility(View.GONE);
+                    viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
+                }
             }
         };
 
@@ -171,7 +171,7 @@ public class ReportActivity extends AppCompatActivity
     }
 
 
-    private void showData(DataSnapshot dataSnapshot)
+    private void showData(DataSnapshot dataSnapshot)    //currently unused, testing for use with task time calculation
     {
         for (DataSnapshot ds : dataSnapshot.getChildren())
         {
