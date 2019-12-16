@@ -8,7 +8,9 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,12 +19,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rrr.swift.MainActivity.AdminHomeActivity;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 import com.rrr.swift.SupportClasses.User;
 import com.rrr.swift.temp.Main4Activity;
 
-public class RegActivity extends AppCompatActivity {
+public class AdminRegActivity extends AppCompatActivity {
 
     EditText firstNameText;
     EditText lastNameText;
@@ -31,17 +34,15 @@ public class RegActivity extends AppCompatActivity {
     EditText confirmPasswordText;
     Button regButton;
     Button backButton;
+    CheckBox adminCheck;
+    Boolean admin;
     FirebaseAuth dataRef;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg);
-
+        setContentView(R.layout.activity_admin_reg);
         firstNameText = findViewById(R.id.firstname_reg);
         lastNameText = findViewById(R.id.lastname_reg);
         emailText = findViewById(R.id.email_reg);
@@ -49,19 +50,32 @@ public class RegActivity extends AppCompatActivity {
         confirmPasswordText = findViewById(R.id.password2_reg);
         regButton = findViewById(R.id.btn_submit);
         backButton = findViewById(R.id.btn_return);
+        adminCheck = findViewById(R.id.admin_check);
 
         dataRef = FirebaseAuth.getInstance();
 
-       final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users");
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               final String firstName = firstNameText.getText().toString().trim();
-                final String lastName = lastNameText.getText().toString().trim();
-                final String email = emailText.getText().toString().trim();
-                final String password = passwordText.getText().toString().trim();
+                String firstName = firstNameText.getText().toString().trim();
+                String lastName = lastNameText.getText().toString().trim();
+                String email = emailText.getText().toString().trim();
+                String password = passwordText.getText().toString().trim();
                 String confirmPassword = confirmPasswordText.getText().toString().trim();
+
+               // adminCheck.setOnClickListener(new View.OnClickListener() {
+                   // @Override
+                   // public void onClick(View v) {
+                        if(adminCheck.isChecked()) {
+                            admin = true;
+                        }
+                        else{
+                            admin = false;
+                        }
+                   //}
+               // });
 
 
                 if(TextUtils.isEmpty(firstName) || firstName.length() < 3 || firstName.length() > 30){
@@ -94,29 +108,27 @@ public class RegActivity extends AppCompatActivity {
                 }*/
 
                 //Creating User
-                dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
+                dataRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(AdminRegActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(RegActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(AdminRegActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(RegActivity.this, "Authentication failed." + task.getException(),
+                            Toast.makeText(AdminRegActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-
-                            startActivity(new Intent(RegActivity.this, UserHomeActivity.class));
+                            startActivity(new Intent(AdminRegActivity.this, AdminHomeActivity.class));
                             finish();
                         }
 
                     }
                 });
 
-                //Linking Created user with User object in Firebase
+
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                User user = new User(firstName, lastName, email, password, false);
+                User user = new User(firstName, lastName, email, password, admin);
                 mDatabase.child(userId).setValue(user);
 
             }
@@ -125,11 +137,13 @@ public class RegActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity (new Intent(RegActivity.this, Main4Activity.class));
+                startActivity (new Intent(AdminRegActivity.this, AdminHomeActivity.class));
                 finish();
             }
         });
 
     }
 
+
 }
+

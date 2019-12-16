@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.rrr.swift">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,15 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".AuthActivity.LoginActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".AuthActivity.AdminRegActivity"></activity>
+        <activity android:name=".MainActivity.UserHomeActivity" />
+        <activity android:name=".MainActivity.AdminHomeActivity" />
+        <activity android:name=".AuthActivity.LoginActivity" />
         <activity android:name=".AuthActivity.RegActivity" />
         <activity android:name=".LocationActivities.AddLocation" />
         <activity android:name=".temp.Main4Activity" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LocationActivities.LocationEditDetailsActivity" />
         <activity android:name=".LocationActivities.AddEditLocationActivity" />

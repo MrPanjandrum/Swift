@@ -1,37 +1,37 @@
-package com.rrr.swift;
+package com.rrr.swift.MainActivity;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.rrr.swift.AuthActivity.AdminRegActivity;
+import com.rrr.swift.HomeActivity;
 import com.rrr.swift.LocationActivities.LocationActivity;
+import com.rrr.swift.R;
 
-public class Main2Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener
-{
+public class AdminHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_admin_home);
+        //TO DO: Look in to Toolbar issue
+        // Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, /*toolbar,*/ R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
@@ -46,9 +46,9 @@ public class Main2Activity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         }
         else
-            {
+        {
             super.onBackPressed();
-            }
+        }
     }
 
     @Override
@@ -85,23 +85,23 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.nav_main_menu)   //handles navigation menu click
         {
-            Intent myIntent = new Intent(Main2Activity.this, HomeActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+            Intent myIntent = new Intent(AdminHomeActivity.this, HomeActivity.class);
+            AdminHomeActivity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_locations)
         {
-            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+            Intent myIntent = new Intent(AdminHomeActivity.this, LocationActivity.class);
+            AdminHomeActivity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_work_orders)
         {
-            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+            Intent myIntent = new Intent(AdminHomeActivity.this, LocationActivity.class);
+            AdminHomeActivity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_settings)
         {
-            Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-            Main2Activity.this.startActivity(myIntent);
+            Intent myIntent = new Intent(AdminHomeActivity.this, LocationActivity.class);
+            AdminHomeActivity.this.startActivity(myIntent);
         }
         else if (id == R.id.nav_share)
         {
@@ -120,11 +120,13 @@ public class Main2Activity extends AppCompatActivity
 
     public void openLocationActivity(View view)
     {
-        Intent myIntent = new Intent(Main2Activity.this, LocationActivity.class);
-        Main2Activity.this.startActivity(myIntent);
+        Intent myIntent = new Intent(AdminHomeActivity.this, LocationActivity.class);
+        AdminHomeActivity.this.startActivity(myIntent);
     }
 
 
-
-
+    public void openRegActivity(View view) {
+        Intent myIntent = new Intent(AdminHomeActivity.this, AdminRegActivity.class );
+        AdminHomeActivity.this.startActivity(myIntent);
+    }
 }
