@@ -24,8 +24,8 @@ import java.util.ArrayList;
 public class ReportActivity extends AppCompatActivity
 {
     private static final String TAG = "ReportActivity";
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference myRef;
+//    private FirebaseDatabase mFirebaseDatabase;
+//    private DatabaseReference myRef;
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -54,12 +54,14 @@ public class ReportActivity extends AppCompatActivity
         taskLocation = (TextView) findViewById(R.id.tv_selected_location);
         totalTasks = (TextView) findViewById(R.id.tv_tasks);
         completedTasks = (TextView) findViewById(R.id.tv_completed_task_num);
-//        mFirebaseDatabase = FirebaseDatabase.getInstance();
-//        myRef = mFirebaseDatabase.getReference().child("Tasks")/*.child(String.valueOf(taskNum))*/;
-
 
         taskLocation.setText(mAddress.get(0));
-//
+
+        recyclerView = findViewById(R.id.gallery_recyclerview);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+
 //        // Attach a listener to read the data at our posts reference
 //        myRef.addValueEventListener(new ValueEventListener()
 //        {
@@ -110,10 +112,7 @@ public class ReportActivity extends AppCompatActivity
 //
 //        System.out.println("Time in days: " + diffDays + " days.");
 
-        recyclerView = findViewById(R.id.gallery_recyclerview);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
     }
 
     @Override
@@ -121,8 +120,6 @@ public class ReportActivity extends AppCompatActivity
     {
         super.onStart();
         Log.d(TAG, "onStart: started.");
-
-
 
         FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
                 (

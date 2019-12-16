@@ -77,6 +77,75 @@
             android:layout_toRightOf="@id/recycler_task_finished_date_title"
             />
 
+        <TextView
+            android:id="@+id/recycler_task_elapsed_time_days_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elapsed Time in Days: "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_below="@id/recycler_task_finished_date"
+            />
+
+        <TextView
+            android:id="@+id/recycler_task_elapsed_time_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Example Time in Days"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:layout_margin="5dp"
+            android:layout_below="@id/recycler_task_finished_date"
+            android:layout_toRightOf="@id/recycler_task_elapsed_time_hrs_title"
+            />
+
+        <TextView
+            android:id="@+id/recycler_task_elapsed_time_hrs_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elapsed Time in Hrs: "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_below="@id/recycler_task_elapsed_time_days_title"
+            />
+
+        <TextView
+            android:id="@+id/recycler_task_elapsed_time_hrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Example Time in Hrs"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:layout_margin="5dp"
+            android:layout_below="@id/recycler_task_elapsed_time_days_title"
+            android:layout_toRightOf="@id/recycler_task_elapsed_time_hrs_title"
+            />
+        <TextView
+            android:id="@+id/recycler_task_elapsed_time_mins_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elapsed Time in Mins: "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_below="@id/recycler_task_elapsed_time_hrs_title"
+            />
+
+        <TextView
+            android:id="@+id/recycler_task_elapsed_mins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Example Time in Mins"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:layout_margin="5dp"
+            android:layout_below="@id/recycler_task_elapsed_time_hrs_title"
+            android:layout_toRightOf="@id/recycler_task_elapsed_time_mins_title"
+            />
+
+
 
 
         <ImageView

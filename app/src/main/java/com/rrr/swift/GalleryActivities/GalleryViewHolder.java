@@ -2,6 +2,8 @@ package com.rrr.swift.GalleryActivities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +29,8 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     private ArrayList<String> mTaskStatus = new ArrayList<>();
     private ArrayList<Integer> mTaskNum = new ArrayList<>();
     private ArrayList<Long> mDateTest = new ArrayList<>();  //created date
+    private ArrayList<Long> mTaskFinished = new ArrayList<>();  //completed date
+    private ArrayList<Long> mHours = new ArrayList<>();  //completed date
 
     public GalleryViewHolder(View itemView)
     {
@@ -58,6 +62,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setTaskDetails(String address, String addressImage, String taskName, String taskDescription,
                                String taskArea, String taskStatus, int taskNum, long dateTest, long taskFinished)
     {
@@ -67,11 +72,13 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
         ImageView tskStatus = mView.findViewById(R.id.recycler_task_status);
         TextView tskCreated = mView.findViewById(R.id.recycler_task_created_date);
         TextView tskFinished = mView.findViewById(R.id.recycler_task_finished_date);
+        TextView tskTimeDays = mView.findViewById(R.id.recycler_task_elapsed_time_days);
+        TextView tskTimeHrs = mView.findViewById(R.id.recycler_task_elapsed_time_hrs);
+        TextView tskTimeMins = mView.findViewById(R.id.recycler_task_elapsed_mins);
 
         tskName.setText(taskName);
         tskDescription.setText(taskDescription);
-        tskCreated.setText(String.valueOf(dateTest));
-        tskFinished.setText(String.valueOf(taskFinished));
+
 
         mAddress.add(address);
         mAddressImage.add(addressImage);
@@ -81,10 +88,44 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
         mTaskStatus.add(taskStatus);
         mTaskNum.add(taskNum);
         mDateTest.add(dateTest);
+        mTaskFinished.add(taskFinished);
 
-        Log.d(TAG,"Date Test Value: "+dateTest);
 
-        //Log.d(TAG, "Task Status: "+ taskStatus);
+
+        long milliseconds1 = mDateTest.get(0);
+        long milliseconds2 = mTaskFinished.get(0);
+
+
+        long diff = milliseconds2 - milliseconds1;
+        long diffSeconds = diff / 1000;
+        long diffMinutes = diff / (60 * 1000);
+        long diffHours = diff / (60 * 60 * 1000);
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+
+        System.out.println("Date Difference Example");
+
+        System.out.println("millis 1: "+milliseconds1+"  millis: "+milliseconds2);
+
+        System.out.println("Time in milliseconds: " + diff + " milliseconds.");
+
+        System.out.println("Time in seconds: " + diffSeconds + " seconds.");
+
+        System.out.println("Time in minutes: " + diffMinutes + " minutes.");
+
+        System.out.println("Time in hours: " + diffHours + " hours.");
+
+        System.out.println("Time in days: " + diffDays + " days.");
+
+mHours.add(diffHours);
+
+
+        tskCreated.setText(String.valueOf(dateTest));
+        tskFinished.setText(String.valueOf(taskFinished));
+        tskTimeDays.setText(String.valueOf(diffDays));
+        tskTimeHrs.setText(String.valueOf(diffHours));
+        tskTimeMins.setText(String.valueOf(diffMinutes));
+
+
 
 
         if(taskStatus.contains("stopped"))
