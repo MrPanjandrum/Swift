@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 
 import java.util.ArrayList;
@@ -146,7 +147,7 @@ public class AddTask2Activity extends AppCompatActivity
                     maxID = maxID + 1;
                     Log.d(TAG,"maxID after increment is: " + maxID);
 
-                    Intent myIntent = new Intent(AddTask2Activity.this, AddTask1Activity.class);
+                    Intent myIntent = new Intent(AddTask2Activity.this, UserHomeActivity.class);
                     AddTask2Activity.this.startActivity(myIntent);
                 }
                 else

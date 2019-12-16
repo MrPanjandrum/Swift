@@ -1,5 +1,6 @@
 package com.rrr.swift.ReportActivities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rrr.swift.GalleryActivities.GalleryViewHolder;
+import com.rrr.swift.GalleryActivities.GalleryReportViewHolder;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
 import com.rrr.swift.TaskActivities.AddTask2Activity;
@@ -121,14 +122,15 @@ public class ReportActivity extends AppCompatActivity
         super.onStart();
         Log.d(TAG, "onStart: started.");
 
-        FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
+        FirebaseRecyclerAdapter<Location, GalleryReportViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryReportViewHolder>
                 (
-                        Location.class, R.layout.recycler_view_report_layout, GalleryViewHolder.class, reference
+                        Location.class, R.layout.recycler_view_report_layout, GalleryReportViewHolder.class, reference
                 )
         {
 
+            @SuppressLint("NewApi")
             @Override
-            protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
+            protected void populateViewHolder(GalleryReportViewHolder viewHolder, Location model, int position)
             {
 
                 if(mAddress.contains(model.getAddress()) && model.getTaskStatus().contains("complete"))   //checks for incomplete tasks matching selected location

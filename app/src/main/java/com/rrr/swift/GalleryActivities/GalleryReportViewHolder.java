@@ -13,9 +13,12 @@ import android.widget.TextView;
 import com.rrr.swift.R;
 import com.rrr.swift.TaskActivities.TaskDetailActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class GalleryViewHolder extends RecyclerView.ViewHolder
+public class GalleryReportViewHolder extends RecyclerView.ViewHolder
 {
 
     private static final String TAG = "GalleryViewHolder";
@@ -32,7 +35,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
     private ArrayList<Long> mTaskFinished = new ArrayList<>();  //completed date
     private ArrayList<Long> mHours = new ArrayList<>();  //completed date
 
-    public GalleryViewHolder(View itemView)
+    public GalleryReportViewHolder(View itemView)
     {
         super(itemView);
         mView = itemView;
@@ -94,6 +97,18 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
         long milliseconds1 = mDateTest.get(0);
         long milliseconds2 = mTaskFinished.get(0);
 
+        long milli = milliseconds1*1000;
+        long milli2 = milliseconds2*1000;
+
+//        DateFormat simple = new SimpleDateFormat("MMM dd yyyy HH:mm:ss:SSS Z");
+
+        DateFormat simple = new SimpleDateFormat("E, dd/MMM/yyyy hh:mm:ss z");
+        Date date1 = new Date(milli);
+        Date date2 = new Date(milli2);
+
+        System.out.println("Create Date:" + simple.format(date1));
+        System.out.println("Finish Date:" + simple.format(date2));
+
 
         long diff = milliseconds2 - milliseconds1;
         long diffSeconds = diff / 1000;
@@ -102,28 +117,19 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
         long diffDays = diff / (24 * 60 * 60 * 1000);
 
         System.out.println("Date Difference Example");
-
         System.out.println("millis 1: "+milliseconds1+"  millis: "+milliseconds2);
-
         System.out.println("Time in milliseconds: " + diff + " milliseconds.");
-
         System.out.println("Time in seconds: " + diffSeconds + " seconds.");
-
         System.out.println("Time in minutes: " + diffMinutes + " minutes.");
-
         System.out.println("Time in hours: " + diffHours + " hours.");
-
         System.out.println("Time in days: " + diffDays + " days.");
+        mHours.add(diffHours);
 
-mHours.add(diffHours);
 
-
-//        tskCreated.setText(String.valueOf(dateTest));
-//        tskFinished.setText(String.valueOf(taskFinished));
-//        tskTimeDays.setText(String.valueOf(diffDays));
-//        tskTimeHrs.setText(String.valueOf(diffHours));
-//        tskTimeMins.setText(String.valueOf(diffMinutes));
-
+        tskCreated.setText(String.valueOf(date1));
+        tskFinished.setText(String.valueOf(date2));
+        tskTimeDays.setText(String.valueOf(diffDays));
+        tskTimeHrs.setText(String.valueOf(diffHours));
 
 
 
@@ -205,7 +211,3 @@ mHours.add(diffHours);
 
 
 }
-
-
-
-
