@@ -17,7 +17,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
+import com.rrr.swift.SettingsActivities.SettingsActivity;
 
 public class AddLocation extends AppCompatActivity
 {
@@ -42,6 +44,7 @@ public class AddLocation extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_location);
+        Log.d(TAG,"onCreate: started");
 
         mSubmit = (Button) findViewById(R.id.add_location_btn);
         mNewLocation = (EditText) findViewById(R.id.et_address);
@@ -59,12 +62,12 @@ public class AddLocation extends AppCompatActivity
                 {
                     //User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    toastMessage("Signed-in with: " + user.getEmail());
                 } else
                     {
                     //User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
-                    toastMessage("Successfully signed out.");
+                    toastMessage("Signed-out. Must sign-in.");
                     }
             }
 
@@ -98,11 +101,15 @@ public class AddLocation extends AppCompatActivity
             public void onClick(View view)
             {
             Log.d(TAG, "onClick: Attempting to add object to database.");
+
             String newLocation = mNewLocation.getText().toString().trim();
+
             if(!newLocation.equals(""))
                 {
                 FirebaseUser user = mAuth.getCurrentUser();
-                String userID = user.getUid();
+                String userID = user.getUid();  //causes crash if User Login Screen is bypassed
+
+                    Log.d(TAG,"User ID: "+userID);
 
                 Log.d(TAG,"maxID before increment is: " + maxID);
                 myRef.child(String.valueOf(maxID+1)).child("address").setValue(newLocation);
@@ -113,8 +120,12 @@ public class AddLocation extends AppCompatActivity
                 maxID = maxID + 1;
                 Log.d(TAG,"maxID after increment is: " + maxID);
 
-                Intent myIntent = new Intent(AddLocation.this, AddEditLocationActivity.class);
+                Intent myIntent = new Intent(AddLocation.this, Main2Activity.class);
                 AddLocation.this.startActivity(myIntent);
+                }
+            else
+                {
+                toastMessage("Please enter an address");
                 }
             }
             });
@@ -128,13 +139,17 @@ public class AddLocation extends AppCompatActivity
     protected void onStart()
     {
         super.onStart();
-       mAuth.addAuthStateListener(mAuthListener);
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
 
 
 
-
+    public void openAddEditLocationActivity(View view)
+    {
+        Intent myIntent = new Intent(AddLocation.this, AddEditLocationActivity.class);
+        AddLocation.this.startActivity(myIntent);
+    }
 
 
 
@@ -142,6 +157,7 @@ public class AddLocation extends AppCompatActivity
     {
         Toast.makeText(this, s,Toast.LENGTH_SHORT).show();
     }
+
 
 
 }

@@ -41,13 +41,13 @@ public class GalleryActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
+        setContentView(R.layout.activity_gallery);//
         Log.d(TAG, "onCreate: started.");
 
         recyclerView = findViewById(R.id.gallery_recyclerview);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+        recyclerView.setHasFixedSize(true);//
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));//
 
         getIncomingIntent();
     }
@@ -62,6 +62,8 @@ public class GalleryActivity extends Activity
         super.onStart();
         Log.d(TAG, "onStart: started.");
 
+        getIncomingIntent();
+
         FirebaseRecyclerAdapter<Location, GalleryViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, GalleryViewHolder>
                 (
                      Location.class, R.layout.recycler_view_task_layout, GalleryViewHolder.class, reference
@@ -72,11 +74,13 @@ public class GalleryActivity extends Activity
             protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
             {
 
-    if(mAddress.contains(model.getAddress()))   //checks for tasks matching selected location
+                String str = "complete";
+    if(mAddress.contains(model.getAddress()) && !model.getTaskStatus().contains("complete"))   //checks for incomplete tasks matching selected location
         {
             viewHolder.itemView.setVisibility(View.VISIBLE);
             viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            viewHolder.setTaskDetails(model.getAddress(), model.getTaskName(), model.getTaskDescription(), model.getTaskArea());                  //sets taskname and description to viewholder
+            viewHolder.setTaskDetails(model.getAddress(), model.getAddressImage(), model.getTaskName(), model.getTaskDescription(), model.getTaskArea(),
+                                        model.getTaskStatus(), model.getTaskNum(), model.getDateTest());     //sets details to viewholder
         }
     else
         {
@@ -104,9 +108,9 @@ public class GalleryActivity extends Activity
 
             mAddressImage = getIntent().getStringArrayListExtra("address_image");
             mAddress = getIntent().getStringArrayListExtra("address");
+            Log.d(TAG,"Address Image: " + mAddressImage);
 
             setImage(mAddressImage, mAddress);
-
 
         }
     }

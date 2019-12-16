@@ -7,6 +7,7 @@
     tools:context=".temp.Main4Activity">
 
     <ImageView
+        android:src="@drawable/logo_640x480_no_background"
         android:id="@+id/imageView"
         android:layout_width="260dp"
         android:layout_height="180dp"

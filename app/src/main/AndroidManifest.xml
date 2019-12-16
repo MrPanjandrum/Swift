@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.rrr.swift">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo_75x57_no_background"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AuthActivity.AdminRegActivity"></activity>
-        <activity android:name=".MainActivity.UserHomeActivity" />
-        <activity android:name=".MainActivity.AdminHomeActivity" />
-        <activity android:name=".AuthActivity.LoginActivity" />
-        <activity android:name=".AuthActivity.RegActivity" />
-        <activity android:name=".LocationActivities.AddLocation" />
-        <activity android:name=".temp.Main4Activity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".LocationActivities.LocationEditDetailsActivity" />
-        <activity android:name=".LocationActivities.AddEditLocationActivity" />
-        <activity android:name=".TaskActivity.TaskActivity" />
-        <activity android:name=".SearchExampleActivites.MainActivity" />
-        <activity android:name=".GalleryActivities.GalleryActivity" />
-        <activity android:name=".LocationActivities.LocationActivity" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".TaskActivities.TaskListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".temp.Main4Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RegistrationActivity.RegActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TaskActivities.AddTask2Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TaskActivities.AddTask1Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LocationActivities.AddLocation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AuthActivity.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".temp.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LocationActivities.LocationEditDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LocationActivities.AddEditLocationActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TaskActivities.TaskDetailActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SearchExampleActivites.MainActivity"/>
+        <activity android:name=".GalleryActivities.GalleryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LocationActivities.LocationActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".SplashActivity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

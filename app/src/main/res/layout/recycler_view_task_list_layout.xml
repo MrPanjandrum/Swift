@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"/>
+
+
+    <RelativeLayout
+        android:id="@+id/task_name_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_below="@id/divider5"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/recycler_task_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sample Task"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:id="@+id/recycler_task_create_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Date"
+            android:textStyle="bold"
+            android:layout_below="@id/recycler_task_name"
+            android:layout_marginTop="5dp"/>
+
+        <ImageView
+            android:id="@+id/recycler_task_status"
+            android:src="@drawable/icons8_traffic_light_64"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/recycler_task_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Task Location"
+        android:layout_below="@id/task_name_parent"
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/recycler_task_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Task Area"
+        android:textSize="15sp"
+        android:layout_below="@id/task_name_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="5dp"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>

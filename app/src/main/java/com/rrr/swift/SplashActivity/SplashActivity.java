@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.rrr.swift.AuthActivity.LoginActivity;
+import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
 
 
@@ -35,7 +36,8 @@ public class SplashActivity extends Activity
                         splashLogo.startAnimation(rotateAnimation);
                         splashLogo.setVisibility(View.INVISIBLE);
                         sleep(4000);
-                       startActivity (new Intent(SplashActivity.this, LoginActivity.class));
+                        Intent splashIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(splashIntent);
                         finish();
                     }
                     catch (InterruptedException e)

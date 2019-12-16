@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.R;
@@ -39,7 +40,7 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
                intent.putExtra("address",mAddress);
                intent.putExtra("address_image",mAddressImage);
                context.startActivity(intent);
-               //Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
+               Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
             }
         });
 

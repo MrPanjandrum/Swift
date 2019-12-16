@@ -1,12 +1,10 @@
 package com.rrr.swift.LocationActivities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -44,12 +42,7 @@ public class LocationActivity extends Activity
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
     }
 
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////
-
+    ////////////////////////////////////////////////////////////////////////////////////////
 
 
     @Override
@@ -60,37 +53,17 @@ public class LocationActivity extends Activity
         FirebaseRecyclerAdapter<Location, LocationViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, LocationViewHolder>
                 (
                         Location.class, R.layout.recycler_view_layout, LocationViewHolder.class, reference
-
                 )
         {
             @Override
             protected void populateViewHolder(LocationViewHolder viewHolder, Location model, int position)
             {
                 viewHolder.setLocationDetails(model.getAddress(),model.getAddressImage());
-
             }
         };
 
         recyclerView.setAdapter(recyclerAdapter);
-
-
     }
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////
-
-
-    public void openAddEditLocations(View view)
-    {
-        Intent myIntent = new Intent(LocationActivity.this, AddEditLocationActivity.class);
-        LocationActivity.this.startActivity(myIntent);
-    }
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 
 

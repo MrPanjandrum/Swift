@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rrr.swift.LocationActivities.AddEditLocationActivity;
+import com.rrr.swift.Main2Activity;
 import com.rrr.swift.R;
-import com.rrr.swift.AuthActivity.RegActivity;
+import com.rrr.swift.RegistrationActivity.RegActivity;
 
 public class Main4Activity extends AppCompatActivity
 {
@@ -57,11 +57,11 @@ public class Main4Activity extends AppCompatActivity
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     toastMessage("Successfully signed in with: " + user.getEmail());
                 } else
-                    {
-                        //User is signed out
+                {
+                    //User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                     toastMessage("Successfully signed out.");
-                    }
+                }
             }
 
         };
@@ -76,13 +76,13 @@ public class Main4Activity extends AppCompatActivity
                 if(!email.equals("") && !pass.equals(""))
                 {
                     mAuth.signInWithEmailAndPassword(email,pass);
-                    Intent myIntent = new Intent(Main4Activity.this, AddEditLocationActivity.class);
+                    Intent myIntent = new Intent(Main4Activity.this, Main2Activity.class);
                     Main4Activity.this.startActivity(myIntent);
                 }
                 else
-                    {
+                {
                     toastMessage("You didn't fill in all the fields");
-                    }
+                }
             }
         });
 

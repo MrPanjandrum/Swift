@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rrr.swift.R;
+import com.rrr.swift.TaskActivities.AddTask2Activity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -35,11 +36,11 @@ public class AddEditLocationViewHolder extends RecyclerView.ViewHolder
             public void onClick(View v)
             {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, LocationEditDetailsActivity.class);
+                Intent intent = new Intent(context, AddTask2Activity.class);
                 intent.putExtra("address",mAddress);
-                intent.putExtra("address_image",mAddressImage);
+                //intent.putExtra("address_image",mAddressImage);
                 context.startActivity(intent);
-                Toast.makeText(context,"Clicked Location to Edit ", Toast.LENGTH_LONG).show();
+//                Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -63,6 +64,10 @@ public class AddEditLocationViewHolder extends RecyclerView.ViewHolder
     {
         TextView txt = mView.findViewById(R.id.recycler_text);
         txt.setText(address);
+
+        mAddress.add(address);
     }
+
+
 }
 

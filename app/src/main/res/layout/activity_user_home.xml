@@ -17,18 +17,19 @@
 
         <ImageView
             android:layout_marginTop="45dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:paddingTop="55dp"
             android:paddingBottom="40dp"
             android:layout_gravity="center"
-            android:contentDescription="mercy haven logo"/>
+            android:src="@drawable/logo_640x480_no_background"
+            android:contentDescription="logo"/>
 
 
         <LinearLayout
             android:id="@+id/child_1"
             android:layout_width="match_parent"
-            android:layout_height="246dp"
+            android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@drawable/shape2"
             android:orientation="vertical"
@@ -63,7 +64,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_weight="1"
-                    android:text="Work Orders"
+                    android:text="Tasks"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -80,7 +81,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="6"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:backgroundTint="#A0A0A0"
                 android:orientation="horizontal">
 
@@ -106,7 +107,8 @@
                     android:layout_weight="3"
                     android:background="@drawable/shape"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/icons8_full_tool_storage_box_50_white"/>
+                    android:src="@drawable/icons8_jig_saw_50"
+                    android:onClick="openTaskListActivity"/>
             </LinearLayout>
 
             <LinearLayout
@@ -116,7 +118,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="6"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:backgroundTint="#A0A0A0"
                 android:orientation="horizontal">
 
@@ -130,7 +132,8 @@
                     android:layout_weight="3"
                     android:background="@drawable/shape"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/settings_icon_white"/>
+                    android:src="@drawable/icons8_full_tool_storage_box_50_white"
+                    android:onClick="openSettingsActivity"/>
 
                 <ImageButton
                     android:layout_width="0dp"
@@ -141,6 +144,7 @@
                     android:layout_weight="3"
                     android:background="@drawable/shape"
                     android:scaleType="fitCenter"
+                    android:onClick="openReportActivity"
                     android:src="@drawable/inspect_icon_white"/>
             </LinearLayout>
 
@@ -161,7 +165,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
                     android:layout_weight="1"
-                    android:text="Settings"
+                    android:text="Tools"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -173,11 +177,12 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_weight="1"
-                    android:text="Inspections"
+                    android:text="Reports"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:onClick="openReportActivity"/>
 
 
             </LinearLayout>
