@@ -6,24 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="end"
-    android:background="@drawable/pale_sky">
+    tools:openDrawer="end">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <ImageView
-            android:layout_marginTop="45dp"
-            android:layout_width="250dp"
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:paddingTop="55dp"
-            android:paddingBottom="40dp"
+            android:layout_marginTop="60dp"
             android:layout_gravity="center"
-            android:src="@drawable/logo_640x480_no_background"
-            android:contentDescription="logo"/>
+            android:src="@drawable/hive_title"
+            android:contentDescription="logo"
+            android:layout_alignParentStart="true"/>
 
 
         <LinearLayout
@@ -31,9 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@drawable/shape2"
             android:orientation="vertical"
-            android:weightSum="16">
+            android:weightSum="13"
+            android:layout_below="@id/logo">
 
 
             <LinearLayout
@@ -54,7 +52,7 @@
                     android:layout_weight="1"
                     android:text="Locations"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#e68200"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -66,7 +64,7 @@
                     android:layout_weight="1"
                     android:text="Tasks"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#e68200"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -167,7 +165,7 @@
                     android:layout_weight="1"
                     android:text="Tools"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#e68200"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -179,7 +177,7 @@
                     android:layout_weight="1"
                     android:text="Reports"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#e68200"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:onClick="openReportActivity"/>
@@ -189,7 +187,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <include

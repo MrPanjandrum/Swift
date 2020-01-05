@@ -1,10 +1,8 @@
 package com.rrr.swift.TaskActivities;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.rrr.swift.R;
 
