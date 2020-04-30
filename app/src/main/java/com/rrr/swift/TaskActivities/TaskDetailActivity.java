@@ -3,9 +3,6 @@ package com.rrr.swift.TaskActivities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,7 +32,6 @@ import java.util.Calendar;
 
 public class TaskDetailActivity extends Activity implements View.OnClickListener
 {
-
     private static final String TAG = "TaskDetailActivity";
 
     Button startTaskBtn, stopTaskBtn, finishTaskBtn, submitCommentBtn;
@@ -54,14 +54,10 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef, myRef2, myRef3, myRef4;
 
-    int maxID = 0;
     int commentID = 0;
     int taskStartID = 0;
     int timeID = 0;
     private LinearLayoutManager mLayoutManager;
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -114,12 +110,9 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
             {
                 if(dataSnapshot.exists())
                 {
-                    //maxID = (int) dataSnapshot.getChildrenCount();
                     commentID = (int) dataSnapshot.getChildrenCount();
                     Log.d(TAG, "Comment ID:" + commentID);
                 }
-//                Object value = dataSnapshot.getValue();
-//                Log.d(TAG, "Value is:" + value);
             }
 
             @Override
@@ -141,7 +134,6 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
 
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError)
             {
@@ -149,17 +141,11 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
             }
         });
 
-
-
-
-
         submitCommentBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                //Date date = new Date();
-
                 int taskNum = mTaskNum.get(0);
                 String newTaskComment = taskComment.getText().toString().trim();
 
@@ -173,7 +159,6 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
                 taskComment.setText("");
             }
         });
-
     }
 
     @Override
@@ -182,28 +167,21 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
         super.onStart();
         Log.d(TAG, "onStart: started.");
 
-
-FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, CommentViewHolder>
+        FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, CommentViewHolder>
         (
             Location.class, R.layout.recycler_view_task_comment_layout, CommentViewHolder.class, myRef2
         )
-{
+        {
     @Override
     protected void populateViewHolder(CommentViewHolder viewHolder, Location model, int position)
     {
        viewHolder.setCommentDetails(model.getCommentText(), model.getCommentDate());
     }
-};
+        };
 
     recyclerView.setAdapter(recyclerAdapter);
 
-
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
-
         //disables button corresponding to current status
-
         if(mTaskStatus.contains("in-progress"))
         {
             startTaskBtn.setEnabled(false);
@@ -231,14 +209,8 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
 
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     public void onClick(View v)
     {
-//          SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
-//          Date date = new Date();
-
         long epoch = System.currentTimeMillis()/1000;       //gets current epoch time
 
         int taskNum = mTaskNum.get(0);
@@ -298,10 +270,6 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
         myRef.child(String.valueOf(taskNum)).child("taskTime").child(String.valueOf(taskStartID)).child("taskStarted").getKey();
     }
 
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     private void getIncomingIntent()
     {
         Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
@@ -326,10 +294,6 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
         else
             Log.d(TAG, "getIncomingIntent: one or more intent extras NOT FOUND");
     }
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
     private void setTaskDetails(ArrayList<String> mAddress, ArrayList<String> mTaskName, ArrayList<String> mTaskDescription,
@@ -367,7 +331,6 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_64);
         }
 
-
         long epoch = mDateTest.get(0);
         String date = new java.text.SimpleDateFormat("MMM dd yyyy").format(new java.util.Date (epoch*1000));
         //"MMM dd yyyy hh:mm:ss aa"
@@ -377,21 +340,11 @@ FirebaseRecyclerAdapter<Location, CommentViewHolder> recyclerAdapter = new Fireb
         tskDescription.setText("Description: " + mTaskDescription.get(0));
         tskArea.setText("Area: " + mTaskArea.get(0));
         textViewDate.setText(String.valueOf(date));
-
-//        Log.d(TAG, "Date Test: "+ mDateTest);
-//        Log.d(TAG, "SDF Test: "+ date);
     }
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void toastMessage(String s)
     {
         Toast.makeText(this, s,Toast.LENGTH_SHORT).show();
     }
-
-
-
-
 
 }

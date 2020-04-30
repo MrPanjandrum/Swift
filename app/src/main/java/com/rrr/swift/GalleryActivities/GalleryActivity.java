@@ -3,14 +3,15 @@ package com.rrr.swift.GalleryActivities;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -21,42 +22,31 @@ import com.rrr.swift.R;
 
 import java.util.ArrayList;
 
-
 public class GalleryActivity extends Activity
 {
-
     private static final String TAG = "GalleryActivity";
 
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mAddressImage = new ArrayList<>();
 
-
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Tasks");
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);//
+        setContentView(R.layout.activity_gallery);
         Log.d(TAG, "onCreate: started.");
 
         recyclerView = findViewById(R.id.gallery_recyclerview);
 
-        recyclerView.setHasFixedSize(true);//
-        recyclerView.setLayoutManager(new GridLayoutManager(this,1));//
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
         getIncomingIntent();
     }
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     @Override
     protected void onStart()
@@ -71,13 +61,10 @@ public class GalleryActivity extends Activity
                      Location.class, R.layout.recycler_view_task_layout, GalleryViewHolder.class, reference
                 )
         {
-
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
             {
-
-                String str = "complete";
     if(mAddress.contains(model.getAddress()) && !model.getTaskStatus().contains("complete"))   //checks for incomplete tasks matching selected location
         {
             viewHolder.itemView.setVisibility(View.VISIBLE);
@@ -90,16 +77,11 @@ public class GalleryActivity extends Activity
         viewHolder.itemView.setVisibility(View.GONE);
         viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
         }
-
             }
         };
 
         recyclerView.setAdapter(recyclerAdapter);
     }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     private void getIncomingIntent()
     {
@@ -118,10 +100,6 @@ public class GalleryActivity extends Activity
         }
     }
 
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     private void setImage(ArrayList<String> mAddressImage, ArrayList<String> mAddress)
     {
         Log.d(TAG, "setImage: setting the image and name to widgets.");
@@ -136,16 +114,6 @@ public class GalleryActivity extends Activity
                 )
                 .into(image);
     }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
 
 }
 

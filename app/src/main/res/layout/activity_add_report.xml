@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/location_add_edit_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,6 +34,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         android:onClick="openHomeActivity"
+        android:background="@drawable/shape"
         />
 
 </RelativeLayout>

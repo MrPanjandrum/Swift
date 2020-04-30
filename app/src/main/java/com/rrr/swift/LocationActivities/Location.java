@@ -11,8 +11,7 @@ public class Location
     private String commentText;
     private String commentDate;
     private int taskNum;
-
-
+    private String imageUrl;
 
     private long dateTest;
     private long taskFinished;
@@ -24,7 +23,7 @@ public class Location
 
 
     public Location(String address, String addressImage, String taskName, String taskDescription, String taskArea,
-                    String taskStatus, int taskNum, String commentText, String commentDate, long dateTest, long taskFinished)
+                    String taskStatus, int taskNum, String commentText, String commentDate, long dateTest, long taskFinished, String imageUrl)
     {
         this.address = address;
         this.addressImage = addressImage;
@@ -37,6 +36,7 @@ public class Location
         this.commentDate = commentDate;
         this.dateTest = dateTest;
         this.taskFinished = taskFinished;
+        this.imageUrl = imageUrl;
     }
 
 
@@ -98,13 +98,25 @@ public class Location
 
     public void setCommentText(String commentText) { this.commentText = commentText; }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public String getCommentDate() { return commentDate; }
 
     public long getDateTest() { return dateTest;}
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void setDateTest(long dateTest) { this.dateTest = dateTest; }
 
     public long getTaskFinished() { return taskFinished; }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public void setTaskFinished(long taskFinished) { this.taskFinished = taskFinished; }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public String getImageUrl() { return imageUrl;}
+
+
 }

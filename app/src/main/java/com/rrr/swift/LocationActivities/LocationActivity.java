@@ -1,39 +1,36 @@
 package com.rrr.swift.LocationActivities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
-
 
 public class LocationActivity extends Activity
 {
-
     private static final String TAG = "LocationActivity";
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Locations");
 
-
-
-
-   ///////////////////////////////////////////////////////////////////////////////
-
-
+    FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference mDatabaseReference = mFirebaseDatabase.getReference();
+    DatabaseReference first = mDatabaseReference.child("image");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_location);
-        setContentView(R.layout.activity_admin_location); //testing admin add/edit features
+        setContentView(R.layout.activity_location);
         Log.d(TAG, "onCreate: started.");
 
         recyclerView = findViewById(R.id.location_recyclerview);
@@ -41,9 +38,6 @@ public class LocationActivity extends Activity
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////
-
 
     @Override
     protected void onStart()
@@ -61,11 +55,12 @@ public class LocationActivity extends Activity
                 viewHolder.setLocationDetails(model.getAddress(),model.getAddressImage());
             }
         };
-
         recyclerView.setAdapter(recyclerAdapter);
     }
 
-
-
-
+    public void openHomeActivity(View view)
+    {
+        Intent homeIntent = new Intent(getApplicationContext(), UserHomeActivity.class);
+        startActivity(homeIntent);
+    }
 }

@@ -13,18 +13,39 @@
         android:layout_marginTop="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:text="Add New Location" />
+        android:text="Locations"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
-    <android.support.v7.widget.RecyclerView
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="?android:attr/listDivider"
+        android:layout_below="@id/textView2"
+        android:layout_margin="8dp"
+        android:layout_marginTop="12dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/location_add_edit_recyclerview"
         android:layout_width="399dp"
         android:layout_height="533dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="8dp"
-        android:layout_below="@id/textView2"/>
+        android:layout_below="@id/divider7"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Location"
+        android:textSize="18sp"
+        android:layout_above="@id/floatingActionButton"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +54,8 @@
         android:clickable="true"
         android:onClick="newLocation"
         android:src="@drawable/plus"
-        app:backgroundTint="#9D213D"
-        android:layout_alignParentEnd="true"
+        app:backgroundTint="#f2af58"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

@@ -2,8 +2,8 @@ package com.rrr.swift.TaskActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -128,8 +128,8 @@ public class AddTask2Activity extends AppCompatActivity
 
                 if(!taskName.equals(""))
                 {
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    String userID = user.getUid();  //causes crash if User Login Screen is bypassed
+//                    FirebaseUser user = mAuth.getCurrentUser();
+//                    String userID = user.getUid();  //causes crash if User Login Screen is bypassed
 
                     //Log.d(TAG,"maxID before increment is: " + maxID);
                     myRef.child(String.valueOf(maxID+1)).child("address").setValue(mAddress.get(0));    //sets values to firebase rtb

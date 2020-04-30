@@ -4,16 +4,15 @@ package com.rrr.swift.TaskActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rrr.swift.LocationActivities.AddEditLocationViewHolder;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
@@ -55,14 +54,14 @@ public class AddTask1Activity extends AppCompatActivity
     {
         super.onStart();
         Log.d(TAG, "onStart: started.");
-        FirebaseRecyclerAdapter<Location, AddEditLocationViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, AddEditLocationViewHolder>
+        FirebaseRecyclerAdapter<Location, AddTaskViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, AddTaskViewHolder>
                 (
-                        Location.class, R.layout.recycler_view_add_edit_location_layout, AddEditLocationViewHolder.class, reference
+                        Location.class, R.layout.recycler_view_add_edit_location_layout, AddTaskViewHolder.class, reference
 
                 )
         {
             @Override
-            protected void populateViewHolder(AddEditLocationViewHolder viewHolder, Location model, int position)
+            protected void populateViewHolder(AddTaskViewHolder viewHolder, Location model, int position)
             {
                 viewHolder.setAddress(model.getAddress());
 

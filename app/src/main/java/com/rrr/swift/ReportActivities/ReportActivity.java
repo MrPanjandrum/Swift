@@ -3,13 +3,14 @@ package com.rrr.swift.ReportActivities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -25,8 +26,6 @@ import java.util.ArrayList;
 public class ReportActivity extends AppCompatActivity
 {
     private static final String TAG = "ReportActivity";
-//    private FirebaseDatabase mFirebaseDatabase;
-//    private DatabaseReference myRef;
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,7 +40,6 @@ public class ReportActivity extends AppCompatActivity
 
     int numTasks;
     int numTasksCompleted;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -132,7 +130,6 @@ public class ReportActivity extends AppCompatActivity
             @Override
             protected void populateViewHolder(GalleryReportViewHolder viewHolder, Location model, int position)
             {
-
                 if(mAddress.contains(model.getAddress()) && model.getTaskStatus().contains("complete"))   //checks for incomplete tasks matching selected location
                 {
                     viewHolder.itemView.setVisibility(View.VISIBLE);
@@ -145,8 +142,6 @@ public class ReportActivity extends AppCompatActivity
 
                     totalTasks.setText(String.valueOf(numTasks));
                     completedTasks.setText(String.valueOf(numTasksCompleted));
-
-
                 }
                 else if(mAddress.contains(model.getAddress()))
                 {
@@ -156,7 +151,6 @@ public class ReportActivity extends AppCompatActivity
 
                     viewHolder.itemView.setVisibility(View.GONE);
                     viewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0,0));    //hides layouts not matching selected location
-
                 }
                 else
                 {
@@ -214,11 +208,4 @@ public class ReportActivity extends AppCompatActivity
 
         }
     }
-
-
-
-
-
-
-
 }

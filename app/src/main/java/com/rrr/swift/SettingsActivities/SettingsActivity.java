@@ -2,13 +2,15 @@ package com.rrr.swift.SettingsActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.rrr.swift.LocationActivities.AddEditLocationActivity;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 import com.rrr.swift.TaskActivities.AddTask1Activity;
 
@@ -53,11 +55,15 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
+    public void openHomeActivity(View view)
+    { Intent homeIntent = new Intent(getApplicationContext(), UserHomeActivity.class);
+    startActivity(homeIntent);
+    }
 
     private void toastMessage(String s)
     {
         Toast.makeText(this, s,Toast.LENGTH_SHORT).show();
     }
+
 
 }

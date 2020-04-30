@@ -1,16 +1,19 @@
 package com.rrr.swift.AuthActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,7 +47,7 @@ public class LoginActivity extends AppCompatActivity
         mPassword = (EditText) findViewById(R.id.login_password);
         btnSignIn = (Button) findViewById(R.id.login_btn);
         btnSignOut = (Button) findViewById(R.id.logout_btn);
-        regLink = findViewById(R.id.regAccount);
+//        regLink = findViewById(R.id.textView);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -58,13 +61,13 @@ public class LoginActivity extends AppCompatActivity
                 if (user != null)
                 {
                     //User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    toastMessage("Successfully signed in with: " + user.getEmail());
+//                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    toastMessage( user.getEmail()+ " Signed-In Successfully");
                 } else
                     {
                         //User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                    toastMessage("Successfully signed out.");
+//                    Log.d(TAG, "onAuthStateChanged:signed_out");
+//                    toastMessage("Successfully signed out.");
                     }
             }
 
@@ -108,24 +111,13 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        btnSignOut.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                mAuth.signOut();
-                toastMessage("Signing out...");
-            }
-        });
-
+        RelativeLayout relativeLayout = findViewById(R.id.login_relative_layout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
     }
-
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     @Override
     protected void onStart()
@@ -143,9 +135,6 @@ public class LoginActivity extends AppCompatActivity
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     private void toastMessage(String s)

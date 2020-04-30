@@ -20,16 +20,9 @@ public class LocationEditDetailsActivity extends Activity
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Locations");
 
-  //  EditText etAddress;
     EditText mAptNum;
-    EditText mCity;
-    EditText mState;
-    EditText mZip;
 
     private ArrayList<String> mAddress = new ArrayList<>();
-
-    //    Spinner mSpinner;
-//    String[] mNumbers = {"Select Number of Dwellings","1 - Dwelling","2 - Dwellings","3","4","5","6","7","8","9","10"};
 
 
     @Override
@@ -38,68 +31,12 @@ public class LocationEditDetailsActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_edit_details);
 
-   //     etAddress = (EditText)findViewById(R.id.et_address);
         mAptNum = (EditText)findViewById(R.id.et_apt_num);
 
         getIncomingIntent();
 
-   //     etAddress.setText(address.get(0));
-
-
-//        mCity = (EditText)findViewById(R.id.et_city);
-//        mState = (EditText)findViewById(R.id.et_state);
-//        mZip = (EditText)findViewById(R.id.et_zip);
-
-//        mSpinner = findViewById(R.id.spinner);
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mNumbers);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        mSpinner.setAdapter(adapter);
-//        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-//        {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-//            {
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent)
-//            {
-//            }
-//        });
-
-
-//        reference.addValueEventListener(new ValueEventListener()
-//        {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot)
-//            {
-//                showData(dataSnapshot);
-//            }
-//
-//
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError)
-//            {
-//
-//            }
-//        });
     }
 
-//    private void showData(DataSnapshot dataSnapshot)
-//    {
-//
-//    for (DataSnapshot ds : dataSnapshot.getChildren())
-//    {
-////        Location location = new Location();
-////        location.setAddress(ds.child(address).getValue(Location.class).getAddress());
-////
-////        ArrayList<String> array = new ArrayList<>();
-////        array.add(location.getAddress());
-////        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1);
-////        mListView.setAdapter(adapter);
-//    }
-//
-//    }
 
     private void getIncomingIntent()
     {
@@ -117,7 +54,6 @@ public class LocationEditDetailsActivity extends Activity
 
         }
     }
-
 
     private void setEditText(ArrayList<String> mAddress)
     {

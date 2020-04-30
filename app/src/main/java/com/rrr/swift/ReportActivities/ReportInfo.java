@@ -7,7 +7,6 @@ public class ReportInfo
     private long taskStopped;
     private long taskFinished;
 
-
     public ReportInfo(){}
 
 

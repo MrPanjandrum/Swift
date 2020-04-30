@@ -1,4 +1,4 @@
-package com.rrr.swift.LocationActivities;
+package com.rrr.swift.TaskActivities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,16 +9,13 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 
-public class LocationViewHolder extends RecyclerView.ViewHolder
+public class AddTaskViewHolder extends RecyclerView.ViewHolder
 {
 
     View mView;
@@ -26,13 +23,9 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
     private ArrayList<String> mAddress = new ArrayList<>();
     private ArrayList<String> mAddressImage = new ArrayList<>();
 
-    ImageView aImage;
-
-    FirebaseStorage mStorage = FirebaseStorage.getInstance();
-    StorageReference storageReference = mStorage.getReferenceFromUrl("gs://swift-d5717.appspot.com/pictures").child("345 Test Street");
 
 
-    public LocationViewHolder(final View itemView)
+    public AddTaskViewHolder(final View itemView)
     {
         super(itemView);
 
@@ -42,17 +35,16 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
             @Override
             public void onClick(View v)
             {
-               Context context = v.getContext();
-               Intent intent = new Intent(context, GalleryActivity.class);
-               intent.putExtra("address",mAddress);
-               intent.putExtra("address_image",mAddressImage);
-               context.startActivity(intent);
-               Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
+                Context context = v.getContext();
+                Intent intent = new Intent(context, AddTask2Activity.class);
+                intent.putExtra("address",mAddress);
+                intent.putExtra("address_image",mAddressImage);
+                context.startActivity(intent);
+                Toast.makeText(context,"Clicked: "+ mAddress, Toast.LENGTH_LONG).show();
             }
         });
 
     }
-
 
     public void setLocationDetails(String address, String addressImage)
     {
@@ -64,6 +56,7 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
 
         mAddress.add(address);
         mAddressImage.add(addressImage);
+
     }
 
 
@@ -71,5 +64,10 @@ public class LocationViewHolder extends RecyclerView.ViewHolder
     {
         TextView txt = mView.findViewById(R.id.recycler_text);
         txt.setText(address);
+
+        mAddress.add(address);
     }
+
+
 }
+

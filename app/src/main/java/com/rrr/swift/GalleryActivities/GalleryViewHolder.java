@@ -3,12 +3,13 @@ package com.rrr.swift.GalleryActivities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.rrr.swift.R;
 import com.rrr.swift.TaskActivities.TaskDetailActivity;

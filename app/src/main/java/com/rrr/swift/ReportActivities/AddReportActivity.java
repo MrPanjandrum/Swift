@@ -2,11 +2,12 @@ package com.rrr.swift.ReportActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -16,13 +17,9 @@ import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 
-
 public class AddReportActivity extends AppCompatActivity
 {
-
     private static final String TAG = "AddReportActivity";
-
-    //private ArrayList<String> mAddress = new ArrayList<>();
 
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,7 +38,6 @@ public class AddReportActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
     }
 
-
     @Override
     protected void onStart()
     {
@@ -50,7 +46,6 @@ public class AddReportActivity extends AppCompatActivity
         FirebaseRecyclerAdapter<Location, AddEditLocationReportViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Location, AddEditLocationReportViewHolder>
                 (
                         Location.class, R.layout.recycler_view_add_edit_location_layout, AddEditLocationReportViewHolder.class, reference
-
                 )
         {
             @Override
@@ -58,11 +53,9 @@ public class AddReportActivity extends AppCompatActivity
             {
                 viewHolder.setAddress(model.getAddress());
             }
-
         };
 
         recyclerView.setAdapter(recyclerAdapter);
-
     }
 
     public void openHomeActivity(View view)
