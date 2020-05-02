@@ -159,6 +159,13 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
                 taskComment.setText("");
             }
         });
+
+//        RelativeLayout relativeLayout = findViewById(R.id.login_relative_layout);
+//        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+//        animationDrawable.setEnterFadeDuration(2000);
+//        animationDrawable.setExitFadeDuration(4000);
+//        animationDrawable.start();
+
     }
 
     @Override

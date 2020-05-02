@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/honeycomb_hexagonal_pattern_vector_3"
+        android:src="@drawable/gradient_list"
         android:scaleType="centerCrop"/>
 
 <RelativeLayout
@@ -24,7 +24,7 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"
-        android:textColor="#535252"
+        android:textColor="#422f15"
         android:textSize="35sp"/>
 
     <RelativeLayout
@@ -40,7 +40,7 @@
             android:layout_margin="10dp"
             android:text="Add \nLocation"
             android:layout_centerHorizontal="true"
-            android:textColor="@android:color/black"
+            android:textColor="#422f15"
             android:textStyle="normal"
             android:textSize="20sp"
             android:background="@drawable/shape"/>
@@ -51,7 +51,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:text="Add \nTask"
-            android:textColor="@android:color/black"
+            android:textColor="#422f15"
             android:layout_below="@id/add_edit_loc_btn"
             android:layout_centerHorizontal="true"
             android:textStyle="normal"

@@ -178,10 +178,10 @@ mHours.add(diffHours);
         tskLocation.setText(address);
         tskArea.setText(taskArea);
         tskCreateDate.setText(String.valueOf(date));
-
+        
 
         //Log.d(TAG, "Task Status: "+ taskStatus);
-        if(taskStatus.contains("stopped"))
+        if(taskStatus != null && taskStatus.contains("stopped"))
         {
             Log.d(TAG, "Task Status: "+ taskStatus);
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_red_64);

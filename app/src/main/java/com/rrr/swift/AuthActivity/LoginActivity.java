@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity
                 {
                     //User is signed in
 //                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    toastMessage( user.getEmail()+ " Signed-In Successfully");
+//                    toastMessage( user.getEmail()+ " Signed-In Successfully");
                 } else
                     {
                         //User is signed out
@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task)
                                 {
-                                    Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+//                                    Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                                     if (!task.isSuccessful())
                                     {
                                         Log.w(TAG, "signInWithEmail", task.getException());

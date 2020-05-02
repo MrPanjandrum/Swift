@@ -11,7 +11,7 @@
     android:layout_height="wrap_content"
     android:text="Tasks"
     android:textSize="20sp"
-    android:textColor="#010101"
+    android:textColor="#422f15"
     android:textStyle="bold"
     android:gravity="center"
     android:layout_alignParentTop="true"/>
@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
+        android:textColor="#422f15"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"

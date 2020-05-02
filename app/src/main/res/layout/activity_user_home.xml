@@ -53,8 +53,8 @@
                     android:onClick="openLocationActivity"
                     android:layout_gravity="center"
                     android:text="Locations"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    android:textColor="#422f15"
+                    android:textSize="15sp"
                     android:layout_margin="5dp"/>
 
                 <Button
@@ -65,8 +65,8 @@
                     android:onClick="openTaskListActivity"
                     android:layout_gravity="center"
                     android:text="  Tasks        "
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    android:textColor="#422f15"
+                    android:textSize="15sp"
                     android:layout_margin="5dp"/>
 
                 <Button
@@ -77,8 +77,8 @@
                     android:onClick="openSettingsActivity"
                     android:layout_gravity="center"
                     android:text="  Tools        "
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    android:textColor="#422f15"
+                    android:textSize="15sp"
                     android:layout_margin="5dp"/>
 
                 <Button
@@ -89,8 +89,8 @@
                     android:onClick="openReportActivity"
                     android:layout_gravity="center"
                     android:text=" Reports     "
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    android:textColor="#422f15"
+                    android:textSize="15sp"
                     android:layout_margin="5dp" />
 
 
@@ -102,13 +102,14 @@
             android:id="@+id/logout_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="Sign Out"
-            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textColor="#422f15"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="2dp"
+            android:layout_margin="5dp"
             android:background="@drawable/shape"
             android:onClick="userSignOut"/>
 
