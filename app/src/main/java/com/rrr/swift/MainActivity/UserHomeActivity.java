@@ -23,7 +23,7 @@ import com.rrr.swift.TaskActivities.TaskListActivity;
 public class UserHomeActivity extends AppCompatActivity
 {
     private static final String TAG = "UserHomeActivity";
-    //github test
+    //github
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
