@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
-        android:textColor="#688c8c"
+        android:textColor="#FF3B5B5D"
         android:shadowColor="@android:color/white"
         android:shadowDx="2"
         android:shadowDy="2"

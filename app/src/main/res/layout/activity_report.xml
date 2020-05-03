@@ -6,6 +6,22 @@
     tools:context=".ReportActivities.ReportActivity"
     android:background="#E0E0E0">
 
+    <Button
+        android:id="@+id/home_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="#FF3B5B5D"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:onClick="openHomeActivity"
+        android:background="@drawable/shape4"/>
+
     <TextView
         android:id="@+id/tv_location_selected_title"
         android:layout_width="wrap_content"
@@ -13,7 +29,7 @@
         android:textSize="20sp"
         android:text="Location: "
         android:textColor="#182526"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/home_btn"
         android:layout_margin="5dp"/>
 
     <TextView
@@ -23,6 +39,7 @@
         android:textSize="20sp"
         android:text="Sample Location"
         android:textColor="#182526"
+        android:layout_below="@id/home_btn"
         android:layout_toRightOf="@id/tv_location_selected_title"
         android:layout_margin="5dp"/>
 
@@ -69,18 +86,12 @@
         android:layout_margin="5dp"/>
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gallery_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:layout_below="@id/tv_completed_tasks"/>
-
-
-
-
-
 
 
 </RelativeLayout>

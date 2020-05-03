@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/reg_constraint_layout"
     android:layout_width="match_parent"
@@ -8,35 +7,31 @@
     android:background="@drawable/gradient_list"
     tools:context=".RegistrationActivity.RegActivity">
 
-    <TextView
-        android:id="@+id/headerSpacer"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="5dp"
+        android:background="@drawable/shape4"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="@string/return_btn"
+        android:textColor="#688c8c"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
 
     <TextView
         android:id="@+id/title_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/reg_title"
+        android:text="Register Account"
         android:textColor="#182526"
-        android:textSize="45sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerSpacer" />
+        android:textSize="25sp"
+        android:layout_below="@id/btn_return"/>
 
-    <TextView
-        android:id="@+id/headerSpacer2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerSpacer" />
 
     <EditText
         android:id="@+id/firstname_reg"
@@ -46,9 +41,7 @@
         android:gravity="center"
         android:hint="@string/firstname_reg"
         android:inputType="text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_reg" />
+        android:layout_below="@id/title_reg"/>
 
     <EditText
         android:id="@+id/lastname_reg"
@@ -58,9 +51,7 @@
         android:gravity="center"
         android:hint="@string/lastname_reg"
         android:inputType="text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/firstname_reg" />
+        android:layout_below="@id/firstname_reg"/>
 
     <EditText
         android:id="@+id/email_reg"
@@ -70,9 +61,7 @@
         android:gravity="center"
         android:hint="@string/email_edit"
         android:inputType="textEmailAddress"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lastname_reg" />
+        android:layout_below="@id/lastname_reg"/>
 
     <EditText
         android:id="@+id/password_reg"
@@ -82,9 +71,7 @@
         android:gravity="center"
         android:hint="@string/password_edit"
         android:inputType="textPassword"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_reg" />
+        android:layout_below="@id/email_reg"/>
 
     <EditText
         android:id="@+id/password2_reg"
@@ -94,36 +81,26 @@
         android:gravity="center"
         android:hint="@string/confirm_password_edit"
         android:inputType="textPassword"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_reg" />
+        android:layout_below="@id/password_reg"/>
+
 
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="100dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/shape4"
+        android:gravity="center"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
         android:text="@string/reg_btn"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_reg" />
+        android:textColor="#688c8c"
+        android:layout_below="@id/password2_reg"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
 
-    <Button
-        android:id="@+id/btn_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/shape"
-        android:text="@string/return_btn"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/btn_submit"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_reg" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

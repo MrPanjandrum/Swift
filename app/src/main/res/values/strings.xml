@@ -70,4 +70,7 @@
     <string name="admin_check">Administrator</string>
 
     <string name="icons8_link"><a href="https://icons8.com">Icons by Icons8</a></string>
+    <string name="earl_github_link"><a href="https://github.com/eaplatt3">Registration XML and Java\nCode by Earl Platt III</a></string>
+    <string name="russ_github_link"><a href="https://github.com/roxbrr">"Application Code and Design\nby Russell Roxburgh"</a></string>
+
 </resources>

@@ -23,7 +23,7 @@ import com.rrr.swift.TaskActivities.TaskListActivity;
 public class UserHomeActivity extends AppCompatActivity
 {
     private static final String TAG = "UserHomeActivity";
-    //github test
+
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -65,7 +65,7 @@ public class UserHomeActivity extends AppCompatActivity
         AnimationDrawable animationDrawable = (AnimationDrawable) drawerLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();
+//        animationDrawable.start();
     }
 
     @Override

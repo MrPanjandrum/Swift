@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rrr.swift.GalleryActivities.GalleryActivity;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
@@ -91,12 +92,12 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
         final String currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.getTime());     //gets date in format MM-dd-YY
 
 
-        taskComment = (EditText) findViewById(R.id.et_task_comment);
+        taskComment = findViewById(R.id.et_task_comment);
 
-        submitCommentBtn = (Button) findViewById(R.id.btn_comment_submit);
-        startTaskBtn = (Button) findViewById(R.id.btn_task_start);
-        stopTaskBtn = (Button) findViewById(R.id.btn_task_stop);
-        finishTaskBtn = (Button) findViewById(R.id.btn_task_finish);
+        submitCommentBtn = findViewById(R.id.btn_comment_submit);
+        startTaskBtn = findViewById(R.id.btn_task_start);
+        stopTaskBtn = findViewById(R.id.btn_task_stop);
+        finishTaskBtn = findViewById(R.id.btn_task_finish);
 
         startTaskBtn.setOnClickListener(this);
         stopTaskBtn.setOnClickListener(this);
@@ -160,11 +161,6 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
             }
         });
 
-//        RelativeLayout relativeLayout = findViewById(R.id.login_relative_layout);
-//        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
-//        animationDrawable.setEnterFadeDuration(2000);
-//        animationDrawable.setExitFadeDuration(4000);
-//        animationDrawable.start();
 
     }
 
@@ -207,8 +203,8 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
 
         if(mTaskStatus.contains("complete"))
         {
-//            startTaskBtn.setEnabled(false);   //commented out for testing purposes only
-//            stopTaskBtn.setEnabled(false);
+            startTaskBtn.setEnabled(false);   //commented out for testing purposes only
+            stopTaskBtn.setEnabled(false);
             finishTaskBtn.setEnabled(false);
         }
         else
@@ -349,9 +345,14 @@ public class TaskDetailActivity extends Activity implements View.OnClickListener
         textViewDate.setText(String.valueOf(date));
     }
 
+    public void openHomeActivity(View view)
+    {
+        Intent homeIntent = new Intent(getApplicationContext(), GalleryActivity.class);
+        startActivity(homeIntent);
+    }
+
     private void toastMessage(String s)
     {
         Toast.makeText(this, s,Toast.LENGTH_SHORT).show();
     }
-
 }

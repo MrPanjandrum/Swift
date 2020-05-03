@@ -10,13 +10,14 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/locations_title"
         android:textColor="#FF3B5B5D"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_below="@id/home_btn"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/location_recyclerview"

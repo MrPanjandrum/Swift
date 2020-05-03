@@ -50,9 +50,9 @@ public class ReportActivity extends AppCompatActivity
 
         getIncomingIntent();
 
-        taskLocation = (TextView) findViewById(R.id.tv_selected_location);
-        totalTasks = (TextView) findViewById(R.id.tv_tasks);
-        completedTasks = (TextView) findViewById(R.id.tv_completed_task_num);
+        taskLocation = findViewById(R.id.tv_selected_location);
+        totalTasks = findViewById(R.id.tv_tasks);
+        completedTasks = findViewById(R.id.tv_completed_task_num);
 
         taskLocation.setText(mAddress.get(0));
 
@@ -207,5 +207,11 @@ public class ReportActivity extends AppCompatActivity
             intent.putExtra("address",mAddress);
 
         }
+    }
+
+    public void openHomeActivity(View view)
+    {
+        Intent addReport = new Intent(getApplicationContext(), AddReportActivity.class);
+        startActivity(addReport);
     }
 }
