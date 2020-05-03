@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <rotate
-        android:fromDegrees="290"
-        android:toDegrees="314"
+        android:fromDegrees="314"
+        android:toDegrees="338"
         android:pivotX="50%"
         android:pivotY="50%"
         android:duration="834"
-        android:repeatCount="0"/>
+        android:startOffset="834"/>
 
 
 </set>

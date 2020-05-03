@@ -3,20 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/gallery_constraint_layout"
+    android:background="#E0E0E0">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -26,43 +28,31 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/hive5_transparent"/>
 
         <TextView
             android:id="@+id/image_description"
-            android:layout_width="251dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="56dp"
             android:text="15 Sample Address, SampleVille, SV"
             android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="20sp" />
+            android:textColor="#182526"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="#999"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="9dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gallery_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="505dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

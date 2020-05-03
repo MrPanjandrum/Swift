@@ -1,77 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivities.SettingsActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/gradient_list"
-        android:scaleType="centerCrop"/>
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center">
+    tools:context=".SettingsActivities.SettingsActivity"
+    android:background="#E0E0E0">
 
     <TextView
         android:id="@+id/tv_tools_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tools"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:layout_marginBottom="10dp"
-        android:textColor="#422f15"
-        android:textSize="35sp"/>
-
-    <RelativeLayout
-        android:id="@+id/button_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_margin="15dp"
+        android:text="Tools"
+        android:textColor="#182526"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
-        <Button
-            android:id="@+id/add_edit_loc_btn"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:text="Add \nLocation"
-            android:layout_centerHorizontal="true"
-            android:textColor="#422f15"
-            android:textStyle="normal"
-            android:textSize="20sp"
-            android:background="@drawable/shape"/>
 
-        <Button
-            android:id="@+id/add_edit_tsk_btn"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:text="Add \nTask"
-            android:textColor="#422f15"
-            android:layout_below="@id/add_edit_loc_btn"
-            android:layout_centerHorizontal="true"
-            android:textStyle="normal"
-            android:textSize="20sp"
-            android:background="@drawable/shape"/>
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/add_edit_loc_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/shape4"
+        android:text="Add \nLocation"
+        android:textColor="#FF3B5B5D"
+        android:textSize="18sp"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:textStyle="normal"
+        android:layout_toLeftOf="@id/center_point"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/center_point"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/add_edit_tsk_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/shape4"
+        android:text="Add \nTask"
+        android:textColor="#FF3B5B5D"
+        android:textSize="18sp"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:textStyle="normal"
+        android:layout_toRightOf="@id/center_point"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/icons8_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/icons8_link"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+
+        />
+
 
     <Button
         android:id="@+id/home_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape4"
         android:onClick="openHomeActivity"
-        android:background="@drawable/shape"
-        />
+        android:text="Back"
+        android:textColor="#FF3B5B5D"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
 
-</RelativeLayout>
 
 </RelativeLayout>

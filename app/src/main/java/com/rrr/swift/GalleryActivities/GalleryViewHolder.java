@@ -130,7 +130,7 @@ mHours.add(diffHours);
 
         if(taskStatus.contains("stopped"))
         {
-            Log.d(TAG, "Task Status: "+ taskStatus);
+//            Log.d(TAG, "Task Status: "+ taskStatus);
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_red_64);
         }
         else if(taskStatus.contains("incomplete"))
@@ -183,7 +183,7 @@ mHours.add(diffHours);
         //Log.d(TAG, "Task Status: "+ taskStatus);
         if(taskStatus != null && taskStatus.contains("stopped"))
         {
-            Log.d(TAG, "Task Status: "+ taskStatus);
+//            Log.d(TAG, "Task Status: "+ taskStatus);
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_red_64);
         }
         else if(taskStatus.contains("incomplete"))

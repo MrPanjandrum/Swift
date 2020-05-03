@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReportActivities.ReportActivity">
+    tools:context=".ReportActivities.ReportActivity"
+    android:background="#E0E0E0">
 
     <TextView
         android:id="@+id/tv_location_selected_title"
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Location: "
+        android:textColor="#182526"
         android:layout_alignParentTop="true"
         android:layout_margin="5dp"/>
 
@@ -20,6 +22,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Sample Location"
+        android:textColor="#182526"
         android:layout_toRightOf="@id/tv_location_selected_title"
         android:layout_margin="5dp"/>
 
@@ -29,6 +32,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Total Tasks: "
+        android:textColor="#182526"
         android:layout_below="@id/tv_selected_location"
         android:layout_margin="5dp"/>
 
@@ -37,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sample #"
+        android:textColor="#182526"
         android:textSize="20sp"
         android:layout_toRightOf="@id/tv_total_tasks"
         android:layout_below="@id/tv_location_selected_title"
@@ -48,6 +53,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Completed Tasks: "
+        android:textColor="#182526"
         android:layout_below="@id/tv_total_tasks"
         android:layout_margin="5dp"/>
 
@@ -57,6 +63,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Sample #"
+        android:textColor="#182526"
         android:layout_toRightOf="@id/tv_completed_tasks"
         android:layout_below="@id/tv_total_tasks"
         android:layout_margin="5dp"/>

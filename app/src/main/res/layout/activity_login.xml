@@ -15,7 +15,7 @@
         android:layout_marginTop="50dp"
         android:layout_alignParentStart="true"
         android:contentDescription="logo"
-        app:srcCompat="@drawable/hive4_trans"
+        app:srcCompat="@drawable/hive5_transparent"
         />
 
     <TextView
@@ -62,6 +62,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Sign In"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:layout_below="@id/login_password"
         android:layout_margin="2dp"

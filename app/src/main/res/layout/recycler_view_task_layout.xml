@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/parent_layout">
+    android:id="@+id/parent_layout"
+    android:background="#E0E0E0">
 
     <View
         android:id="@+id/divider4"
@@ -27,6 +28,7 @@
         android:text="Sample Task"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="#182526"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         />
@@ -51,6 +53,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:text="Sample Description - The quick brown fox jumped over the lazy dog."
+        android:textColor="#182526"
         android:layout_marginTop="1dp"/>
 
 

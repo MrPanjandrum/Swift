@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaskActivities.TaskListActivity">
+    tools:context=".TaskActivities.TaskListActivity"
+    android:background="#E0E0E0">
 
 <TextView
     android:id="@+id/tv_task_list_title"
@@ -11,8 +12,9 @@
     android:layout_height="wrap_content"
     android:text="Tasks"
     android:textSize="20sp"
-    android:textColor="#422f15"
+    android:textColor="#182256"
     android:textStyle="bold"
+    android:layout_margin="15dp"
     android:gravity="center"
     android:layout_alignParentTop="true"/>
 
@@ -28,13 +30,18 @@
         android:id="@+id/home_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:textColor="#422f15"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:text="Back"
+        android:textColor="#688c8c"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:layout_margin="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="5dp"
         android:onClick="openHomeActivity"
-        android:background="@drawable/shape"
+        android:background="@drawable/shape4"
         />
 
 </RelativeLayout>

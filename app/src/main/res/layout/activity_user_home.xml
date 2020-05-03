@@ -23,7 +23,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="20dp"
             android:contentDescription="logo"
-            android:src="@drawable/hive4_trans" />
+            android:src="@drawable/hive_white_transparent" />
 
         <LinearLayout
             android:id="@+id/child_1"
@@ -48,49 +48,65 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape"
-                    android:drawableLeft="@drawable/icons8_real_estate_filled_50_white"
+                    android:background="@drawable/shape4"
+                    android:drawableLeft="@drawable/icons8_real_estate_50_cust_turq"
                     android:onClick="openLocationActivity"
                     android:layout_gravity="center"
                     android:text="Locations"
-                    android:textColor="#422f15"
+                    android:textColor="#FF3B5B5D"
                     android:textSize="15sp"
+                    android:shadowColor="@android:color/white"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="1"
                     android:layout_margin="5dp"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape"
-                    android:drawableLeft="@drawable/icons8_jig_saw_50"
+                    android:background="@drawable/shape4"
+                    android:drawableLeft="@drawable/icons8_jig_saw_50_cust_turq"
                     android:onClick="openTaskListActivity"
                     android:layout_gravity="center"
                     android:text="  Tasks        "
-                    android:textColor="#422f15"
+                    android:textColor="#FF3B5B5D"
                     android:textSize="15sp"
+                    android:shadowColor="@android:color/white"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="1"
                     android:layout_margin="5dp"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape"
-                    android:drawableLeft="@drawable/icons8_full_tool_storage_box_50_white"
+                    android:background="@drawable/shape4"
+                    android:drawableLeft="@drawable/icons8_full_tool_storage_box_50_cust_turq"
                     android:onClick="openSettingsActivity"
                     android:layout_gravity="center"
                     android:text="  Tools        "
-                    android:textColor="#422f15"
+                    android:textColor="#FF3B5B5D"
                     android:textSize="15sp"
+                    android:shadowColor="@android:color/white"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="1"
                     android:layout_margin="5dp"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape"
-                    android:drawableLeft="@drawable/inspect_icon_white"
+                    android:background="@drawable/shape4"
+                    android:drawableLeft="@drawable/icons8_document_50_cust_turq"
                     android:onClick="openReportActivity"
                     android:layout_gravity="center"
                     android:text=" Reports     "
-                    android:textColor="#422f15"
+                    android:textColor="#FF3B5B5D"
                     android:textSize="15sp"
+                    android:shadowColor="@android:color/white"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="1"
                     android:layout_margin="5dp" />
 
 
@@ -104,13 +120,17 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="Sign Out"
-            android:textSize="10sp"
-            android:textColor="#422f15"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textSize="14sp"
+            android:textColor="#FF3B5B5D"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
+            android:drawableLeft="@drawable/icons8_sign_out_24_cust_turq"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
-            android:background="@drawable/shape"
+            android:background="@drawable/shape4"
             android:onClick="userSignOut"/>
 
     </RelativeLayout>

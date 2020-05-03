@@ -14,6 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:text="Locations"
+        android:textColor="#182526"
         android:textStyle="bold"
         android:textSize="20sp"/>
 
