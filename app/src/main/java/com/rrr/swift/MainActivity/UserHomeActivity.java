@@ -65,7 +65,7 @@ public class UserHomeActivity extends AppCompatActivity
         AnimationDrawable animationDrawable = (AnimationDrawable) drawerLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
-//        animationDrawable.start();
+        animationDrawable.start();
     }
 
     @Override

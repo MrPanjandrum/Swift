@@ -13,12 +13,12 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -102,17 +102,16 @@ public class GalleryActivity extends Activity
 
     private void setImage(ArrayList<String> mAddressImage, ArrayList<String> mAddress)
     {
-        Log.d(TAG, "setImage: setting the image and name to widgets.");
+        Log.d(TAG, "setImage: setting image and name");
+
+        mAddress.add(String.valueOf(mAddress));
+        mAddressImage.add(String.valueOf(mAddressImage));
 
         TextView name = findViewById(R.id.image_description);
         name.setText(mAddress.get(0));
 
         ImageView image = findViewById(R.id.image);
-        Glide.with(this)
-                .asBitmap()
-                .load(mAddressImage.get(0)
-                )
-                .into(image);
+        Picasso.get().load(mAddressImage.get(0)).into(image);
     }
 
 
