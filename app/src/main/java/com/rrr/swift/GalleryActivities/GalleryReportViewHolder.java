@@ -64,7 +64,6 @@ public class GalleryReportViewHolder extends RecyclerView.ViewHolder
     {
 
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
-//        TextView tskDescription = mView.findViewById(R.id.recycler_task_description);
         ImageView tskStatus = mView.findViewById(R.id.recycler_task_status);
         TextView tskCreated = mView.findViewById(R.id.recycler_task_created_date);
         TextView tskFinished = mView.findViewById(R.id.recycler_task_finished_date);
@@ -72,7 +71,6 @@ public class GalleryReportViewHolder extends RecyclerView.ViewHolder
         TextView tskCycleTime = mView.findViewById(R.id.recycler_task_cycle_time);
 
         tskName.setText(taskName);
-//        tskDescription.setText(taskDescription);
 
         mAddress.add(address);
         mAddressImage.add(addressImage);

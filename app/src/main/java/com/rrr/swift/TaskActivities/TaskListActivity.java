@@ -18,14 +18,9 @@ import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 
-import java.util.ArrayList;
-
 public class TaskListActivity extends AppCompatActivity
 {
     private static final String TAG = "TaskListActivity";
-
-    private ArrayList<String> mAddress = new ArrayList<>();
-    private ArrayList<String> mAddressImage = new ArrayList<>();
 
     private LinearLayoutManager mLayoutManager;
 

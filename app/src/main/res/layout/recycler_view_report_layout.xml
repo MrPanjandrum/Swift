@@ -140,16 +140,6 @@
     </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/recycler_task_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="Sample Description - The quick brown fox jumped over the lazy dog."
-        android:layout_marginTop="1dp"
-        android:layout_margin="5dp"
-        />
-
 
 
 

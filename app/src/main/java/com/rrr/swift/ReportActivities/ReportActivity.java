@@ -1,6 +1,5 @@
 package com.rrr.swift.ReportActivities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,17 +66,11 @@ public class ReportActivity extends AppCompatActivity
 
         reference.addValueEventListener(new ValueEventListener()
         {
-//            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                long childrenCount = dataSnapshot.getChildrenCount();      //gets total number of tasks in firebase
-//                Log.d(TAG, "Children Count: "+childrenCount);
-                Object value = dataSnapshot.getValue();
-//                Log.d(TAG, "Data Snapshot Value: " + value);
                 showData(dataSnapshot);
                 totalTasks.setText(String.valueOf(mDateTest.get(0)));
-
             }
             @Override
             public void onCancelled(DatabaseError databaseError)
@@ -102,7 +95,7 @@ public class ReportActivity extends AppCompatActivity
                 )
         {
 
-            @SuppressLint("NewApi")
+//
             @Override
             protected void populateViewHolder(GalleryReportViewHolder viewHolder, Location model, int position)
             {
@@ -142,10 +135,7 @@ public class ReportActivity extends AppCompatActivity
 
 
 
-
-
-
-    private void showData(DataSnapshot dataSnapshot)    //currently unused, testing for use with task time calculation
+    private void showData(DataSnapshot dataSnapshot)
     {
 
         for (DataSnapshot ds : dataSnapshot.getChildren())
@@ -158,51 +148,6 @@ public class ReportActivity extends AppCompatActivity
             mDateTest.add(location.getDateTest());
             mTaskFinished.add(location.getTaskFinished());
             mSnapshotAddress.add(location.getAddress());
-
-//        long epochTimeInSec;
-//
-//        int taskDaysInt;
-//        double taskDaysDouble;
-//
-//        int taskHoursInt;
-//        double taskHoursDouble;
-//
-//        int taskMinsInt;
-//        double taskMinsDouble;
-
-//            Log.d(TAG, "showData:  address: " + location.getAddress());
-//            Log.d(TAG, "showData:  dateTest: " + location.getDateTest());
-//            Log.d(TAG, "showData:  taskFinished: " + location.getTaskFinished());
-
-//            epochTimeInSec = mTaskFinished.get(0) - mDateTest.get(0);   //calculates total length of time to task completion in seconds
-//
-//            taskDaysDouble = epochTimeInSec / 86400.0d;                 //calculates number of days to task completion
-//            taskDaysInt = (int)taskDaysDouble;                          //casts full number of days decimal to int for display purposes
-//
-//            taskHoursDouble = (taskDaysDouble - taskDaysInt) * 24;      //removes whole number, leaving decimal for num of hours calculation
-//            taskHoursInt = (int)taskHoursDouble;
-//
-//            taskMinsDouble = (taskHoursDouble - taskHoursInt) * 60;
-//            taskMinsInt = (int)taskMinsDouble;
-//
-//            Log.d(TAG, "epochTimeInSec: "+ epochTimeInSec);
-//            Log.d(TAG, "taskDaysDouble: "+ taskDaysDouble);
-//            Log.d(TAG, "taskDaysInt: "+ taskDaysInt);
-//            Log.d(TAG, "taskHoursDouble: "+ taskHoursDouble);
-//            Log.d(TAG, "taskHoursInt: "+ taskHoursInt);
-//            Log.d(TAG, "taskMinsDouble: "+ taskMinsDouble);
-//            Log.d(TAG, "taskMinsInt: "+ taskMinsInt);
-
-//            if(mAddress.equals(mSnapshotAddress))
-//            {
-//                Log.d(TAG,"Address Match!");
-//                Log.d(TAG,"Epoch Difference is: " + epochTimeInSec);
-//                Log.d(TAG,"Task Completed in: " + taskDaysInt + " days, " + taskHoursInt + " hours, " + taskMinsInt + (" minutes"));
-//
-//            }
-//            else
-//            {Log.d(TAG, "No Match");}
-
         }
     }
 
