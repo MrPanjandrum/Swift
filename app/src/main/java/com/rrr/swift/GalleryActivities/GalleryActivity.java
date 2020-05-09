@@ -1,7 +1,6 @@
 package com.rrr.swift.GalleryActivities;
 
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,7 +59,6 @@ public class GalleryActivity extends Activity
                      Location.class, R.layout.recycler_view_task_layout, GalleryViewHolder.class, reference
                 )
         {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
             {

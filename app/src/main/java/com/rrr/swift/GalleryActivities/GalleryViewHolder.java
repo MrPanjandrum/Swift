@@ -2,13 +2,11 @@ package com.rrr.swift.GalleryActivities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rrr.swift.R;
@@ -63,22 +61,15 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setTaskDetails(String address, String addressImage, String taskName, String taskDescription,
-                               String taskArea, String taskStatus, int taskNum, long dateTest, long taskFinished)
+                               String taskArea, String taskStatus, int taskNum, long dateTest, long taskFinished)       //used in GalleryActivity
     {
-
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
         TextView tskDescription = mView.findViewById(R.id.recycler_task_description);
         ImageView tskStatus = mView.findViewById(R.id.recycler_task_status);
-        TextView tskCreated = mView.findViewById(R.id.recycler_task_created_date);
-        TextView tskFinished = mView.findViewById(R.id.recycler_task_finished_date);
-        TextView tskTimeDays = mView.findViewById(R.id.recycler_task_elapsed_time_days);
-        TextView tskTimeHrs = mView.findViewById(R.id.recycler_task_elapsed_time_hrs);
 
         tskName.setText(taskName);
         tskDescription.setText(taskDescription);
-
 
         mAddress.add(address);
         mAddressImage.add(addressImage);
@@ -90,47 +81,8 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder
         mDateTest.add(dateTest);
         mTaskFinished.add(taskFinished);
 
-
-
-        long milliseconds1 = mDateTest.get(0);
-        long milliseconds2 = mTaskFinished.get(0);
-
-
-        long diff = milliseconds2 - milliseconds1;
-        long diffSeconds = diff / 1000;
-        long diffMinutes = diff / (60 * 1000);
-        long diffHours = diff / (60 * 60 * 1000);
-        long diffDays = diff / (24 * 60 * 60 * 1000);
-
-        System.out.println("Date Difference Example");
-
-        System.out.println("millis 1: "+milliseconds1+"  millis: "+milliseconds2);
-
-        System.out.println("Time in milliseconds: " + diff + " milliseconds.");
-
-        System.out.println("Time in seconds: " + diffSeconds + " seconds.");
-
-        System.out.println("Time in minutes: " + diffMinutes + " minutes.");
-
-        System.out.println("Time in hours: " + diffHours + " hours.");
-
-        System.out.println("Time in days: " + diffDays + " days.");
-
-mHours.add(diffHours);
-
-
-//        tskCreated.setText(String.valueOf(dateTest));
-//        tskFinished.setText(String.valueOf(taskFinished));
-//        tskTimeDays.setText(String.valueOf(diffDays));
-//        tskTimeHrs.setText(String.valueOf(diffHours));
-//        tskTimeMins.setText(String.valueOf(diffMinutes));
-
-
-
-
         if(taskStatus.contains("stopped"))
         {
-//            Log.d(TAG, "Task Status: "+ taskStatus);
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_red_64);
         }
         else if(taskStatus.contains("incomplete"))
@@ -153,9 +105,8 @@ mHours.add(diffHours);
     }
 
 
-    public void setTaskListDetails(String address, String addressImage, String taskName, String taskDescription, String taskArea, String taskStatus, int taskNum, long dateTest)
+    public void setTaskListDetails(String address, String addressImage, String taskName, String taskDescription, String taskArea, String taskStatus, int taskNum, long dateTest)    //used in TaskList Activity
     {
-
         TextView tskName = mView.findViewById(R.id.recycler_task_name);
         ImageView tskStatus = mView.findViewById(R.id.recycler_task_status);
         TextView tskLocation = mView.findViewById(R.id.recycler_task_location);
@@ -178,12 +129,9 @@ mHours.add(diffHours);
         tskLocation.setText(address);
         tskArea.setText(taskArea);
         tskCreateDate.setText(String.valueOf(date));
-        
 
-        //Log.d(TAG, "Task Status: "+ taskStatus);
         if(taskStatus != null && taskStatus.contains("stopped"))
         {
-//            Log.d(TAG, "Task Status: "+ taskStatus);
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_red_64);
         }
         else if(taskStatus.contains("incomplete"))
@@ -203,7 +151,6 @@ mHours.add(diffHours);
             tskStatus.setImageResource(R.drawable.icons8_traffic_light_64);
         }
     }
-
 
 }
 

@@ -1,13 +1,11 @@
 package com.rrr.swift.TaskActivities;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,7 +60,6 @@ public class TaskListActivity extends AppCompatActivity
                         Location.class, R.layout.recycler_view_task_list_layout, GalleryViewHolder.class, reference
                 )
         {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             protected void populateViewHolder(GalleryViewHolder viewHolder, Location model, int position)
             {

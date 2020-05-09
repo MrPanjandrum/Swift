@@ -79,10 +79,10 @@
             />
 
         <TextView
-            android:id="@+id/recycler_task_elapsed_time_days_title"
+            android:id="@+id/recycler_task_lead_time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Elapsed Time in Days: "
+            android:text="Lead Time:"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_margin="5dp"
@@ -90,38 +90,38 @@
             />
 
         <TextView
-            android:id="@+id/recycler_task_elapsed_time_days"
+            android:id="@+id/recycler_task_lead_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example Time in Days"
+            android:text="Example Time"
             android:textSize="15sp"
             android:textStyle="normal"
             android:layout_margin="5dp"
             android:layout_below="@id/recycler_task_finished_date"
-            android:layout_toRightOf="@id/recycler_task_elapsed_time_hrs_title"
+            android:layout_toRightOf="@id/recycler_task_lead_time_title"
             />
 
         <TextView
-            android:id="@+id/recycler_task_elapsed_time_hrs_title"
+            android:id="@+id/recycler_task_cycle_time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Elapsed Time in Hrs: "
+            android:text="Cycle Time: "
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_margin="5dp"
-            android:layout_below="@id/recycler_task_elapsed_time_days_title"
+            android:layout_below="@id/recycler_task_lead_time"
             />
 
         <TextView
-            android:id="@+id/recycler_task_elapsed_time_hrs"
+            android:id="@+id/recycler_task_cycle_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example Time in Hrs"
+            android:text="Example Time"
             android:textSize="15sp"
             android:textStyle="normal"
             android:layout_margin="5dp"
-            android:layout_below="@id/recycler_task_elapsed_time_days_title"
-            android:layout_toRightOf="@id/recycler_task_elapsed_time_hrs_title"
+            android:layout_below="@id/recycler_task_lead_time_title"
+            android:layout_toRightOf="@id/recycler_task_cycle_time_title"
             />
 
 
