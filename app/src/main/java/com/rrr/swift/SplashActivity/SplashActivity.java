@@ -10,7 +10,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
-import com.rrr.swift.AuthActivity.LoginActivity;
+import com.rrr.swift.MainActivity.UserHomeActivity;
 import com.rrr.swift.R;
 
 
@@ -132,7 +132,7 @@ public class SplashActivity extends Activity {
                 splashLogo.startAnimation(animationSet);
 
                 sleep(3500);
-                Intent splashIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent splashIntent = new Intent(getApplicationContext(), UserHomeActivity.class);
                 startActivity(splashIntent);
                 finish();
                 }

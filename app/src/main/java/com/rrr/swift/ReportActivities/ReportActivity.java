@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rrr.swift.GalleryActivities.GalleryReportViewHolder;
 import com.rrr.swift.LocationActivities.Location;
 import com.rrr.swift.R;
@@ -53,66 +55,40 @@ public class ReportActivity extends AppCompatActivity
         taskLocation = findViewById(R.id.tv_selected_location);
         totalTasks = findViewById(R.id.tv_tasks);
         completedTasks = findViewById(R.id.tv_completed_task_num);
+        recyclerView = findViewById(R.id.gallery_recyclerview);
 
         taskLocation.setText(mAddress.get(0));
-
-        recyclerView = findViewById(R.id.gallery_recyclerview);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
-//        // Attach a listener to read the data at our posts reference
-//        myRef.addValueEventListener(new ValueEventListener()
-//        {
+
+
+
+        reference.addValueEventListener(new ValueEventListener()
+        {
 //            @RequiresApi(api = Build.VERSION_CODES.N)
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot)
-//            {
-//                long childrenCount = dataSnapshot.getChildrenCount();
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                long childrenCount = dataSnapshot.getChildrenCount();      //gets total number of tasks in firebase
 //                Log.d(TAG, "Children Count: "+childrenCount);
-////                Object value = dataSnapshot.getValue();
-////                Log.d(TAG, "Data Snapshot Value: " + value);
-////                showData(dataSnapshot);
-////                totalTasks.setText(String.valueOf(mDateTest.get(0)));
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError)
-//            {
-//                System.out.println("The read failed: " + databaseError.getCode());
-//            }
-//        });
+                Object value = dataSnapshot.getValue();
+//                Log.d(TAG, "Data Snapshot Value: " + value);
+                showData(dataSnapshot);
+                totalTasks.setText(String.valueOf(mDateTest.get(0)));
 
-//        date.setText(String.valueOf(createDate));
-//        Calendar calendar1 = Calendar.getInstance();
-//        Calendar calendar2 = Calendar.getInstance();
-//
-//        long milliseconds1 = calendar1.getTimeInMillis();
-//        long milliseconds2 = calendar2.getTimeInMillis();
-//
-//        long diff = milliseconds2 - milliseconds1;
-//        long diffSeconds = diff / 1000;
-//        long diffMinutes = diff / (60 * 1000);
-//        long diffHours = diff / (60 * 60 * 1000);
-//        long diffDays = diff / (24 * 60 * 60 * 1000);
-//
-//        System.out.println("\nThe Date Difference Example");
-//
-//        System.out.println("Cal 1: "+milliseconds1+"  Cal2: "+milliseconds2);
-//
-//        System.out.println("Time in milliseconds: " + diff + " milliseconds.");
-//
-//        System.out.println("Time in seconds: " + diffSeconds + " seconds.");
-//
-//        System.out.println("Time in minutes: " + diffMinutes + " minutes.");
-//
-//        System.out.println("Time in hours: " + diffHours + " hours.");
-//
-//        System.out.println("Time in days: " + diffDays + " days.");
-
-
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
+
+
+
 
     @Override
     protected void onStart()
@@ -164,8 +140,14 @@ public class ReportActivity extends AppCompatActivity
     }
 
 
+
+
+
+
+
     private void showData(DataSnapshot dataSnapshot)    //currently unused, testing for use with task time calculation
     {
+
         for (DataSnapshot ds : dataSnapshot.getChildren())
         {
             Location location = new Location();
@@ -173,21 +155,53 @@ public class ReportActivity extends AppCompatActivity
             location.setTaskFinished(ds.getValue(Location.class).getTaskFinished());
             location.setAddress(ds.getValue(Location.class).getAddress());
 
-            Log.d(TAG, "showData:  address: " + location.getAddress());
-            Log.d(TAG, "showData:  dateTest: " + location.getDateTest());
-            Log.d(TAG, "showData:  taskFinished: " + location.getTaskFinished());
-
-
             mDateTest.add(location.getDateTest());
             mTaskFinished.add(location.getTaskFinished());
             mSnapshotAddress.add(location.getAddress());
 
-            if(mAddress.equals(mSnapshotAddress))
-            {
-                Log.d(TAG,"Address Match!!!");
-            }
-            else
-            {Log.d(TAG, "No Match");}
+//        long epochTimeInSec;
+//
+//        int taskDaysInt;
+//        double taskDaysDouble;
+//
+//        int taskHoursInt;
+//        double taskHoursDouble;
+//
+//        int taskMinsInt;
+//        double taskMinsDouble;
+
+//            Log.d(TAG, "showData:  address: " + location.getAddress());
+//            Log.d(TAG, "showData:  dateTest: " + location.getDateTest());
+//            Log.d(TAG, "showData:  taskFinished: " + location.getTaskFinished());
+
+//            epochTimeInSec = mTaskFinished.get(0) - mDateTest.get(0);   //calculates total length of time to task completion in seconds
+//
+//            taskDaysDouble = epochTimeInSec / 86400.0d;                 //calculates number of days to task completion
+//            taskDaysInt = (int)taskDaysDouble;                          //casts full number of days decimal to int for display purposes
+//
+//            taskHoursDouble = (taskDaysDouble - taskDaysInt) * 24;      //removes whole number, leaving decimal for num of hours calculation
+//            taskHoursInt = (int)taskHoursDouble;
+//
+//            taskMinsDouble = (taskHoursDouble - taskHoursInt) * 60;
+//            taskMinsInt = (int)taskMinsDouble;
+//
+//            Log.d(TAG, "epochTimeInSec: "+ epochTimeInSec);
+//            Log.d(TAG, "taskDaysDouble: "+ taskDaysDouble);
+//            Log.d(TAG, "taskDaysInt: "+ taskDaysInt);
+//            Log.d(TAG, "taskHoursDouble: "+ taskHoursDouble);
+//            Log.d(TAG, "taskHoursInt: "+ taskHoursInt);
+//            Log.d(TAG, "taskMinsDouble: "+ taskMinsDouble);
+//            Log.d(TAG, "taskMinsInt: "+ taskMinsInt);
+
+//            if(mAddress.equals(mSnapshotAddress))
+//            {
+//                Log.d(TAG,"Address Match!");
+//                Log.d(TAG,"Epoch Difference is: " + epochTimeInSec);
+//                Log.d(TAG,"Task Completed in: " + taskDaysInt + " days, " + taskHoursInt + " hours, " + taskMinsInt + (" minutes"));
+//
+//            }
+//            else
+//            {Log.d(TAG, "No Match");}
 
         }
     }
